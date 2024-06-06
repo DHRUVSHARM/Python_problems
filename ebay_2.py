@@ -13,5 +13,3 @@ def foo(wins, draws, scored, conceded):
     second = heapq.heappop(h)
 
     return [first[2], second[2]]
-
-

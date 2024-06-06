@@ -1,7 +1,7 @@
 import itertools
 from heapq import *
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     h = []
     # we maintain priorities and insertion counts to break ties
     # entry counts are useful to break ties when the priorities are the same for 2 tasks
@@ -23,14 +23,15 @@ if __name__ == '__main__':
     # basic array for heap
     entry_finder = {}  # mapping of tasks to entries
     # maps the task label -> [priority , adding order , task label]
-    REMOVED = '<removed-task>'  # placeholder for a removed task
-    counter = itertools.count()  # unique sequence count, breaks ties if tasks are different but
+    REMOVED = "<removed-task>"  # placeholder for a removed task
+    counter = (
+        itertools.count()
+    )  # unique sequence count, breaks ties if tasks are different but
     # the priorities given are the same
-
 
     def add_task(task, priority=0):
         """Add a new task or update the priority of an existing task
-            default priority given is 0
+        default priority given is 0
         """
         if task in entry_finder:
             # we are trying to change the priority of the element
@@ -42,7 +43,6 @@ if __name__ == '__main__':
         entry_finder[task] = entry
         heappush(pq, entry)
 
-
     def remove_task(task):
         """Mark an existing task as REMOVED.  Raise KeyError if not found."""
         # note that only marking is done , for this we remove the key from the dictionary that
@@ -50,7 +50,6 @@ if __name__ == '__main__':
         entry = entry_finder.pop(task)
         # note that every entry value is of the form [ , , ] where last element is the task label
         entry[-1] = REMOVED
-
 
     def pop_task():
         """Remove and return the lowest priority task. Raise KeyError if empty."""

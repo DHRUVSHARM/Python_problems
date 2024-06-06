@@ -21,7 +21,7 @@ def knapsack(items, total_weight_limit):
     print("the maximal reward possible is : ", dp[len(items)][total_weight_limit])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     total_weight_limit = 6
     # items are pairs of weight , cost (reward)
     items = [(2, 7), (6, 14), (1, 3), (4, 11), (2, 6)]

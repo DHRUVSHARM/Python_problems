@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = collections.defaultdict(int)
     print(a["1"])
     print(a[0])
@@ -22,8 +22,7 @@ class Solution:
                 if index - j >= 0:
                     max_element = max(max_element, arr[index - j])
                     dp[index] = max(
-                        dp[index],
-                        dp[index - j - 1] + max_element * (j + 1)
+                        dp[index], dp[index - j - 1] + max_element * (j + 1)
                     )
 
         return dp[len(arr) - 1]

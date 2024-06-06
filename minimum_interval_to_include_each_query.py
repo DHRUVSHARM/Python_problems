@@ -1,7 +1,7 @@
 import heapq
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # we will need to understand heaps (priority queue) in depth
     # using tuples first smallest removed first , followed by the second element
     minHeap = []

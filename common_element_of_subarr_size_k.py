@@ -13,7 +13,7 @@ def minCommonElementInSubarrays(arr, k):
 
     if k - 1 <= center:
         # never possible to have an overlapping subarr , hence no answer
-        return - 1
+        return -1
 
     min_common_element = float("inf")
     for index in range(n - k, k):
@@ -23,7 +23,7 @@ def minCommonElementInSubarrays(arr, k):
     return min_common_element
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # arr has distinct elements
     arr = [1, 2, 3, 4]
     # subarray size k

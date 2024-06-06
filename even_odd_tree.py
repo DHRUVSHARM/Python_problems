@@ -12,7 +12,12 @@ class TreeNode:
 
 class Solution:
     def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
-        d, index, prev_even, prev_odd = collections.deque([root]), 0, float("-inf"), float("inf")
+        d, index, prev_even, prev_odd = (
+            collections.deque([root]),
+            0,
+            float("-inf"),
+            float("inf"),
+        )
 
         while d:
             level_size = len(d)
@@ -26,7 +31,7 @@ class Solution:
                     prev_odd = element
                 else:
                     # even row
-                    if  not (element % 2) or prev_even >= element:
+                    if not (element % 2) or prev_even >= element:
                         return False
                     prev_even = element
 

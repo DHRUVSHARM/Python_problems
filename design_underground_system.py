@@ -1,6 +1,6 @@
 import collections
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
@@ -31,7 +31,7 @@ class UndergroundSystem:
         if (srcStation, stationName) not in self.tripInformation:
             self.tripInformation[(srcStation, stationName)] = [0, 0]
 
-        self.tripInformation[(srcStation, stationName)][0] += (t - inTime)
+        self.tripInformation[(srcStation, stationName)][0] += t - inTime
         self.tripInformation[(srcStation, stationName)][1] += 1
 
     def getAverageTime(self, startStation: str, endStation: str) -> float:
@@ -39,6 +39,7 @@ class UndergroundSystem:
             return -1
         total_time, number_of_trips = self.tripInformation[(startStation, endStation)]
         return total_time / number_of_trips
+
 
 # Your UndergroundSystem object will be instantiated and called as such:
 # obj = UndergroundSystem()

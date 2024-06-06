@@ -1,7 +1,7 @@
 import heapq
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [(float("-inf"), 0), (float("-inf"), 1), (float("-inf"), -1), (1000000, 1)]
     for a, b in arr:
         print("a , b ", a, " , ", b)
@@ -15,9 +15,7 @@ class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
         # we need a heap which will store the priority as (minimal_end_time , minimal_index)
         meetings.sort(key=lambda element: (element[0], element[1]))
-        print(
-            meetings
-        )
+        print(meetings)
         minHeap = [(float("-inf"), room) for room in range(0, n)]
         heapq.heapify(minHeap)
         conducted = {room: 0 for room in range(0, n)}
@@ -34,7 +32,7 @@ class Solution:
 
                 for e, r in temp:
                     if r != minimal_room:
-                        heapq.heappush(minHeap , (e , r))
+                        heapq.heappush(minHeap, (e, r))
 
                 heapq.heappush(minHeap, (end, minimal_room))
                 conducted[minimal_room] += 1

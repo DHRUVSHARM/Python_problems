@@ -2,6 +2,7 @@
 testing program for starting in summer !!!!!!
 first problem for the summer in python
 """
+
 import collections
 from typing import List
 
@@ -30,8 +31,9 @@ class Solution:
 
         return answer
 
-    def calcEquation(self, equations: List[List[str]], values: List[float],
-                     queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         graph = collections.defaultdict(list)
         for i, eq in enumerate(equations):
             num, denom = eq
@@ -52,5 +54,5 @@ class Solution:
         return answers
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

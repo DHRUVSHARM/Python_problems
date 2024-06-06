@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(99 * 999)
     s = "dhruv"
     s = list(reversed(s))

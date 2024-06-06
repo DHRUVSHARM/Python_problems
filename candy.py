@@ -11,7 +11,10 @@ class Solution:
         # print("candies distributed : " , candies_distributed)
 
         for index in range(len(ratings) - 2, -1, -1):
-            if ratings[index] > ratings[index + 1] and candies_distributed[index] <= candies_distributed[index + 1]:
+            if (
+                ratings[index] > ratings[index + 1]
+                and candies_distributed[index] <= candies_distributed[index + 1]
+            ):
                 candies_distributed[index] = candies_distributed[index + 1] + 1
         # print("candies distributed : " , candies_distributed)
 

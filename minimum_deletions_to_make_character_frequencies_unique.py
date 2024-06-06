@@ -1,6 +1,6 @@
 import collections
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     d = collections.defaultdict(set)
     print(d["a"])
 
@@ -18,4 +18,3 @@ class Solution:
             final_set.add(value)
 
         return deletions
-

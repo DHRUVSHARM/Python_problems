@@ -1,6 +1,7 @@
 # Python3 Program to implement
 # the above approach
 
+
 # Function to find maximum
 # distance between every
 # two element
@@ -20,7 +21,7 @@ def max_distance(a, temp, n):
 
         # If array element has
         # not occurred previously
-        if (a[i] not in mp):
+        if a[i] not in mp:
 
             # Update index in temp
             temp[a[i]] = i + 1
@@ -31,8 +32,7 @@ def max_distance(a, temp, n):
             # Compare temp[a[i]] with
             # distance from its previous
             # occurrence and store the maximum
-            temp[a[i]] = max(temp[a[i]],
-                             i - mp[a[i]])
+            temp[a[i]] = max(temp[a[i]], i - mp[a[i]])
 
         mp[a[i]] = i
 
@@ -43,9 +43,8 @@ def max_distance(a, temp, n):
         # occurrence from the end
         # of the array and store
         # the maximum
-        if (temp[i] != -1):
-            temp[i] = max(temp[i],
-                          n - mp[i])
+        if temp[i] != -1:
+            temp[i] = max(temp[i], n - mp[i])
 
 
 # Function to find the minimum
@@ -67,21 +66,19 @@ def min_comm_ele(a, ans, temp, n):
         # Check if subarray of length
         # temp[i] contains i as one
         # of the common elements
-        if (ans[temp[i]] == -1):
+        if ans[temp[i]] == -1:
             ans[temp[i]] = i
 
     for i in range(1, n + 1):
 
         # Find the minimum of all
         # common elements
-        if (i > 1 and
-                ans[i - 1] != -1):
+        if i > 1 and ans[i - 1] != -1:
 
-            if (ans[i] == -1):
+            if ans[i] == -1:
                 ans[i] = ans[i - 1]
             else:
-                ans[i] = min(ans[i],
-                             ans[i - 1])
+                ans[i] = min(ans[i], ans[i - 1])
 
         print(ans[i], end=" ")
 

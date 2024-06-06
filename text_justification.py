@@ -1,7 +1,7 @@
 from typing import List
 
-if __name__ == '__main__':
-    arr = ['1', '2', '3', '4', '5', '6']
+if __name__ == "__main__":
+    arr = ["1", "2", "3", "4", "5", "6"]
     print("^".join(arr))
 
 
@@ -14,14 +14,18 @@ class Solution:
         while index < len(words):
             if words_length + len(current_line_words) + len(words[index]) > maxWidth:
                 # we have to justify this line and move to the next
-                basic_spaces_length = (maxWidth - words_length) // max(len(current_line_words) - 1, 1)
-                remaining_spaces = (maxWidth - words_length) % max(len(current_line_words) - 1, 1)
+                basic_spaces_length = (maxWidth - words_length) // max(
+                    len(current_line_words) - 1, 1
+                )
+                remaining_spaces = (maxWidth - words_length) % max(
+                    len(current_line_words) - 1, 1
+                )
 
                 # print(current_line_words)
                 # print(basic_spaces_length , remaining_spaces)
 
                 for j in range(0, len(current_line_words) - 1):
-                    current_line_words[j] += (" " * basic_spaces_length)
+                    current_line_words[j] += " " * basic_spaces_length
                     if remaining_spaces:
                         current_line_words[j] += " "
                         remaining_spaces -= 1

@@ -2,7 +2,7 @@ import collections
 import heapq
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6]
     n = len(arr)
     # arr.insert(0, 100)
@@ -20,11 +20,11 @@ if __name__ == '__main__':
 
     print("talking about custom style heaps")
     h = []
-    heapq.heappush(h, (5, 'write code'))
-    heapq.heappush(h, (7, 'release product'))
-    heapq.heappush(h, (1, 'write spec'))
-    heapq.heappush(h, (1, 'zzzzzzzz'))
-    heapq.heappush(h, (3, 'create tests'))
+    heapq.heappush(h, (5, "write code"))
+    heapq.heappush(h, (7, "release product"))
+    heapq.heappush(h, (1, "write spec"))
+    heapq.heappush(h, (1, "zzzzzzzz"))
+    heapq.heappush(h, (3, "create tests"))
     print(heapq.heappop(h))
     print(heapq.heappop(h))
 

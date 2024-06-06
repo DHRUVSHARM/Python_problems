@@ -1,7 +1,7 @@
 import heapq
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # nums = [element for element in zip([1], [2])]
     # print(type(nums[0]))
     pass

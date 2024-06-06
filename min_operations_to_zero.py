@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     x, mask, msb = 0, 1, 0
     while mask <= x:
         print("x : ", x)

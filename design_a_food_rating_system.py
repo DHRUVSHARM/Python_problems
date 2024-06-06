@@ -5,7 +5,7 @@ from typing import List
 import sortedcontainers
 from sortedcontainers import SortedSet
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = set()
     a.add(5)
     a.add(4)
@@ -46,6 +46,8 @@ class FoodRatings:
 
     def highestRated(self, cuisine: str) -> str:
         return self.cuisine_mapping[cuisine][0][1]
+
+
 # Your FoodRatings object will be instantiated and called as such:
 # obj = FoodRatings(foods, cuisines, ratings)
 # obj.changeRating(food,newRating)

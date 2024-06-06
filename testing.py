@@ -25,7 +25,7 @@ class lazy_heap:
         self.entry_finder = {}
         # maps the task label -> [priority , adding order , task label]
 
-        self.REMOVED = '<removed-task>'
+        self.REMOVED = "<removed-task>"
         # placeholder for a removed task
 
         self.counter = itertools.count()
@@ -34,7 +34,7 @@ class lazy_heap:
     # functions for use
     def add_task(self, task, priority=0):
         """Add a new task or update the priority of an existing task
-            default priority given is 0
+        default priority given is 0
         """
         if task in self.entry_finder:
             # we are trying to change the priority of the element
@@ -63,7 +63,7 @@ class lazy_heap:
                 del self.entry_finder[task]
                 # deleting first non remove marked key but not returning anything
                 return task
-        raise KeyError('pop from an empty priority queue')
+        raise KeyError("pop from an empty priority queue")
         # means that the queue is empty
 
     def peek(self):
@@ -74,7 +74,7 @@ class lazy_heap:
                 heappop(self.pq)
             else:
                 return self.pq[0][2]
-        raise KeyError('peek from an empty priority queue')
+        raise KeyError("peek from an empty priority queue")
         # means that the queue is empty
 
     def get_size(self):
@@ -91,7 +91,11 @@ def medianSlidingWindow(nums: List[int], k: int) -> List[int]:
         small.add_task(index, -1 * nums[index])
         # task always added to small
 
-        if small.get_size() and large.get_size() and (nums[small.peek()]) > nums[large.peek()]:
+        if (
+            small.get_size()
+            and large.get_size()
+            and (nums[small.peek()]) > nums[large.peek()]
+        ):
             t_index = small.pop_task()
             # print("top index : " , t_index)
             large.add_task(t_index, nums[t_index])
@@ -110,9 +114,9 @@ def medianSlidingWindow(nums: List[int], k: int) -> List[int]:
 
     def findMedian() -> float:
         """
-            find the median
-            :return: median of stream
-            """
+        find the median
+        :return: median of stream
+        """
         # print(small.get_size() , "**" , large.get_size())
         # print(small.pq , " ** " , large.pq)
 
@@ -151,7 +155,7 @@ def helper(ip, w_size):
     return medianSlidingWindow(ip, w_size)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = parse()
     w_size = int(arr[0][0])
     result = []
@@ -162,5 +166,5 @@ if __name__ == '__main__':
 
         # print(ip)
         result = helper(ip, w_size)
-        comma_separated_string = ', '.join(map(str, result))
+        comma_separated_string = ", ".join(map(str, result))
         print(comma_separated_string)

@@ -1,6 +1,6 @@
 import math
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 from typing import List

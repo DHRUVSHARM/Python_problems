@@ -67,7 +67,10 @@ def bipartite_graph_test(graph, root):
         for neighbour in graph.adj_list[frontier]:
             if neighbour not in node_information:
                 queue.append(neighbour)
-                node_information[neighbour] = (node_information[frontier][0] + 1, frontier)
+                node_information[neighbour] = (
+                    node_information[frontier][0] + 1,
+                    frontier,
+                )
             else:
                 # here we have neighbours that are already visited by some other way
                 # so here we check if there is a neighbour which is at the same level
@@ -99,7 +102,10 @@ def bfs(graph, root):
         for neighbour in graph.adj_list[frontier]:
             if neighbour not in node_information:
                 queue.append(neighbour)
-                node_information[neighbour] = (node_information[frontier][0] + 1, frontier)
+                node_information[neighbour] = (
+                    node_information[frontier][0] + 1,
+                    frontier,
+                )
 
     print("after traversal printing the bfs node information : ")
     for node, info in node_information.items():
@@ -230,7 +236,9 @@ def dfs_finish_and_visit(root, graph2: Graph, visit_and_finish, node_information
         for neighbour in neighbours:
             if node_information[neighbour][0] == -1:
                 # unvisited node is a neighbour , we need to visit it now
-                dfs_finish_and_visit(neighbour, graph2, visit_and_finish, node_information)
+                dfs_finish_and_visit(
+                    neighbour, graph2, visit_and_finish, node_information
+                )
 
     # this node's work is finished
     visit_and_finish[1] += 1
@@ -276,10 +284,10 @@ def top_ordering_dfs_finish_times(graph2):
     """
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     graph = Graph()
     # building the graph
-    '''
+    """
     ip = {
         'S': ('A', 'F', 'H'),
         'A': ('B', 'D', 'G', 'S'),
@@ -289,8 +297,8 @@ if __name__ == '__main__':
         'F': ('D', 'S'),
         'H': 'S'
     }
-    '''
-    '''
+    """
+    """
     ip = {
         'S': ('A', 'F', 'H'),
         'A': ('B', 'D', 'G', 'S'),
@@ -303,8 +311,8 @@ if __name__ == '__main__':
         'E': ('C', 'F', 'I'),
         'I': ('E', 'H')
     }
-    '''
-    '''
+    """
+    """
     ip = {
         '1': ('2', '3'),
         '2': ('1', '4'),
@@ -337,15 +345,15 @@ if __name__ == '__main__':
         print(node + " " + str(info))
     print("is bipartite : ")
     print(bipartite_graph_test(graph, root))
-    '''
+    """
 
     # directed graph ip to get topological order and thus conclude if the graph is a DAG
     directed_ip = {
-        'A': 'C',
-        'B': (),
-        'C': 'B',
-        'D': ('A', 'B', 'C', 'E'),
-        'E': ('A', 'B')
+        "A": "C",
+        "B": (),
+        "C": "B",
+        "D": ("A", "B", "C", "E"),
+        "E": ("A", "B"),
     }
 
     for node, neighbours in directed_ip.items():
@@ -363,14 +371,14 @@ if __name__ == '__main__':
     print("****************************************************\n")
     graph2 = Graph()
     directed_ip_2 = {
-        'A': ('B', 'C', 'E'),
-        'B': 'H',
-        'C': (),
-        'D': ('A', 'C', 'E'),
-        'E': (),
-        'F': ('C', 'G', 'H'),
-        'G': ('C', 'E', 'H'),
-        'H': ()
+        "A": ("B", "C", "E"),
+        "B": "H",
+        "C": (),
+        "D": ("A", "C", "E"),
+        "E": (),
+        "F": ("C", "G", "H"),
+        "G": ("C", "E", "H"),
+        "H": (),
     }
 
     for node, neighbours in directed_ip_2.items():

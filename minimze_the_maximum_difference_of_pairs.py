@@ -19,10 +19,10 @@ class Solution:
                     index += 1
             return pairs >= p
 
-        l, r = -1, 10 ** 9 + 1
+        l, r = -1, 10**9 + 1
 
         while l + 1 < r:
-            mid = l + int((r -l) / 2)
+            mid = l + int((r - l) / 2)
             if check(mid):
                 r = mid
             else:

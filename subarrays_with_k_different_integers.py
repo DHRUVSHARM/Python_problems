@@ -11,14 +11,14 @@ class Solution:
                 freq[nums[r]] += 1
                 # print(freq)
                 if len(freq.keys()) <= target:
-                    ans += (r - left + 1)
+                    ans += r - left + 1
                 else:
                     while left <= r and len(freq.keys()) > target:
                         freq[nums[left]] -= 1
                         if not freq[nums[left]]:
                             freq.pop(nums[left])
                         left += 1
-                    ans += (r - left + 1)
+                    ans += r - left + 1
                 # print("ans : " , ans)
             return ans
 

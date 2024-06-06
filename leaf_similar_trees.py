@@ -8,7 +8,7 @@ class TreeNode:
 
 from typing import Optional
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [1, 2, 3, 4, 5]
     b = [1, -1, 3, 4, 5]
 

@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     d = {1: 1, 2: 2, 3: 3, 5: 1, 6: 1}
     print(d)
 
@@ -47,8 +47,13 @@ class Solution:
             return [element] if first_frequency > len(nums) // 3 else []
         elif len(frequency) == 2:
             element_1, element_2 = list(frequency.keys())
-            print(element_1 , element_2)
-            first, first_frequency, second, second_frequency = element_1, 0, element_2, 0
+            print(element_1, element_2)
+            first, first_frequency, second, second_frequency = (
+                element_1,
+                0,
+                element_2,
+                0,
+            )
             for num in nums:
                 if num == first:
                     first_frequency += 1

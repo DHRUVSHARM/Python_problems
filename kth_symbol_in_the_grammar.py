@@ -6,7 +6,7 @@ n = 1 , [0] -> 2^0
 
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     x = 2
     print(x >> 1)
 

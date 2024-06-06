@@ -16,4 +16,3 @@ class Solution:
             rowIndex -= 1
 
         return base
-

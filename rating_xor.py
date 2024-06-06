@@ -21,7 +21,7 @@ def foo(arr):
         if xor_sum in xor_sums:
             # potential ans
             if r - xor_sums[xor_sum] + 1 >= 3:
-                rating += (r - xor_sums[xor_sum] - 1)
+                rating += r - xor_sums[xor_sum] - 1
         else:
             xor_sums[xor_sum] = r
 
@@ -39,7 +39,7 @@ def foo1(arr):
     return rating
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [3, 7, 4, 0]
     print(foo1(a))
     # print(2 ^ 2)

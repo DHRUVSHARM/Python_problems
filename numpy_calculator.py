@@ -22,27 +22,32 @@ def calculate_accuracy(vector1, vector2):
     Returns:
     - Accuracy as a percentage of matches.
     """
-    if vector1.shape != vector2.shape or len(vector1.shape) != 2 or vector1.shape[1] != 1:
+    if (
+        vector1.shape != vector2.shape
+        or len(vector1.shape) != 2
+        or vector1.shape[1] != 1
+    ):
         raise ValueError("Both inputs must be column vectors of the same size.")
 
     # Calculate matches as a boolean array
     matches = vector1 == vector2
 
     # Calculate accuracy
-    accuracy = np.mean(
-        matches) * 100  # np.mean computes the fraction of matches, multiplying by 100 gives the percentage
+    accuracy = (
+        np.mean(matches) * 100
+    )  # np.mean computes the fraction of matches, multiplying by 100 gives the percentage
 
     return accuracy
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     D = [
         [255, 128, 128, 0, 0],
         [55, 128, 128, 128, 2],
         [192, 128, 128, 0, 0],
         [100, 128, 128, 100, 2],
         [30, 64, 128, 30, 4],
-        [20, 64, 128, 0, 4]
+        [20, 64, 128, 0, 4],
     ]
 
     # Process the matrix
@@ -61,7 +66,7 @@ if __name__ == '__main__':
     [0.        ]
     [0.33333333]]
     """
-    weight_and_bias = np.array([0.29215686 , 0.16732026 , 0.16732026 ,0.0 , 0.33333333 ])
+    weight_and_bias = np.array([0.29215686, 0.16732026, 0.16732026, 0.0, 0.33333333])
     weight_and_bias = weight_and_bias.reshape(-1, 1)
 
     print("weight and bias : ")
@@ -99,12 +104,11 @@ if __name__ == '__main__':
     print("Column Averages (Updates):")
     print(column_averages)
 
-
     print("\n")
     new_weights = column_averages.reshape(-1, 1) + weight_and_bias
     print("new weights ..")
     print(new_weights)
-    print("new weights : " , new_weights)
+    print("new weights : ", new_weights)
 
     print("getting accuracy : ")
     score = np.dot(processed_matrix, new_weights)
@@ -114,5 +118,4 @@ if __name__ == '__main__':
     print(score)
 
     print("Accuaracy : ")
-    print(calculate_accuracy(encoded_gt , score))
-
+    print(calculate_accuracy(encoded_gt, score))

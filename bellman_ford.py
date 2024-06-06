@@ -2,6 +2,7 @@
 bellman ford algorithm implementation , used for directed graph with negative edges and
 also can be used to detect negative weight cycles
 """
+
 import math
 
 
@@ -50,8 +51,10 @@ def bellman_ford(edge_list, edges, vertices, source):
 
                 # since we are building from the beginning , this is enough
 
-                if node_information[u][0] + edge_info[2] < node_information[v][0] \
-                        and node_information[u][2] + 1 <= it_number:
+                if (
+                    node_information[u][0] + edge_info[2] < node_information[v][0]
+                    and node_information[u][2] + 1 <= it_number
+                ):
                     print("the edge considered is : " + str(u) + " -> " + str(v))
                     node_information[v][0] = node_information[u][0] + edge_info[2]
                     # update the parent of v as u
@@ -73,8 +76,13 @@ def bellman_ford(edge_list, edges, vertices, source):
     for edge_info in edge_list:
         if node_information[edge_info[0]][0] != math.inf:
             # we can consider his edge for update , since we can reach the parent
-            if node_information[edge_info[0]][0] + edge_info[2] < node_information[edge_info[1]][0]:
-                node_information[edge_info[1]][0] = node_information[edge_info[0]][0] + edge_info[2]
+            if (
+                node_information[edge_info[0]][0] + edge_info[2]
+                < node_information[edge_info[1]][0]
+            ):
+                node_information[edge_info[1]][0] = (
+                    node_information[edge_info[0]][0] + edge_info[2]
+                )
                 node_information[edge_info[1]][1] = edge_info[0]
                 updates += 1
     if updates != 0:
@@ -83,7 +91,7 @@ def bellman_ford(edge_list, edges, vertices, source):
         print("no negative cycle !!!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # the input will be read and stored as an edge-list
     line = list(input().strip().split())
 

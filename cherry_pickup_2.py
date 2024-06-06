@@ -35,7 +35,7 @@ class Solution:
         return dfs(0, 0, len(grid[0]) - 1)
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [-1, 0, 1]
     for x, y in product(arr, arr):
         # nice way to print all possible combinations of moves
@@ -68,7 +68,9 @@ class Solution:
                         if new_col1 >= 0 and new_col2 < len(grid[0]):
                             result = max(
                                 result,
-                                grid[row][col1] + grid[row][col2] + dp[new_col1][new_col2]
+                                grid[row][col1]
+                                + grid[row][col2]
+                                + dp[new_col1][new_col2],
                             )
                     next_dp[col1][col2] = result
             dp = next_dp

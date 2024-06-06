@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     points = [[8, 7], [9, 9], [7, 4], [9, 7]]
     print("the points are : ", points)
     # points.sort(key=)
@@ -17,10 +17,7 @@ class Solution:
         ans = float("-inf")
         points.sort(key=lambda element: (element[0], element[1]))
 
-        for index in range(0 , len(points) - 1):
-            ans = max(
-                ans,
-                points[index + 1][0] - points[index][0]
-            )
+        for index in range(0, len(points) - 1):
+            ans = max(ans, points[index + 1][0] - points[index][0])
 
         return ans

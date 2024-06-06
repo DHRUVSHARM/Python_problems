@@ -21,13 +21,10 @@ def get_min_machines(start=None, end=None):
         else:
             # have to use a new machine
             heapq.heappush(minHeap, (e, s))
-        max_machines = max(
-            max_machines,
-            len(minHeap)
-        )
+        max_machines = max(max_machines, len(minHeap))
 
     print(max_machines)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     get_min_machines()

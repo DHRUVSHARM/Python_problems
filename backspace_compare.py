@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = "dhruv"
     print(s[1])
 
@@ -7,10 +7,10 @@ class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
         left, right, left_backspace, right_backspace = len(s) - 1, len(t) - 1, 0, 0
         while left >= 0 or right >= 0:
-            if left >= 0 and s[left] == '#':
+            if left >= 0 and s[left] == "#":
                 left_backspace += 1
                 left -= 1
-            elif right >= 0 and t[right] == '#':
+            elif right >= 0 and t[right] == "#":
                 right_backspace += 1
                 right -= 1
             elif left_backspace > 0:

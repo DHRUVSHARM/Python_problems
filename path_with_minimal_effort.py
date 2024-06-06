@@ -26,8 +26,20 @@ class Solution:
                 x, y = frontier
                 for dx, dy in directions:
                     newx, newy = x + dx, y + dy
-                    if 0 <= newx <= m - 1 and 0 <= newy <= n - 1 and (newx, newy) not in fixed:
-                        heapq.heappush(minHeap, (max(frontier_weight, abs(
-                            heights[x][y] - heights[newx][newy])), (newx, newy)))
+                    if (
+                        0 <= newx <= m - 1
+                        and 0 <= newy <= n - 1
+                        and (newx, newy) not in fixed
+                    ):
+                        heapq.heappush(
+                            minHeap,
+                            (
+                                max(
+                                    frontier_weight,
+                                    abs(heights[x][y] - heights[newx][newy]),
+                                ),
+                                (newx, newy),
+                            ),
+                        )
 
         return fixed[(m - 1, n - 1)]

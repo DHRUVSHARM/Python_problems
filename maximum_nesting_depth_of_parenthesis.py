@@ -3,12 +3,12 @@ import collections
 
 class Solution:
     def maxDepth(self, s: str) -> int:
-        balance, ans = 0 , 0
+        balance, ans = 0, 0
 
         for c in s:
-            if c == '(':
+            if c == "(":
                 balance += 1
-            elif c == ')':
+            elif c == ")":
                 balance -= 1
             ans = max(ans, balance)
 

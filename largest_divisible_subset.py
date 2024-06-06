@@ -10,7 +10,7 @@ class Solution:
 
         for i in range(1, len(nums)):
             index = -1
-            for j in range(i - 1, - 1, -1):
+            for j in range(i - 1, -1, -1):
                 if nums[i] % nums[j] == 0:
                     if 1 + len(ls[j]) > len(ls[i]):
                         index = j

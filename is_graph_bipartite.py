@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     my_list = [[1, 2, 3], [0, 1, 2], [2, 8], [7]]
     for i, lis in enumerate(my_list):
         print(str(i) + " : " + str(my_list[i]) + " | " + str(lis))
@@ -24,7 +24,7 @@ class Solution:
                     if not info[neighbour][0]:
                         deq.append(neighbour)
                         info[neighbour][0] = True
-                        info[neighbour][1] = (info[node][1] + 1)
+                        info[neighbour][1] = info[node][1] + 1
 
                     if info[neighbour][1] == info[node][1]:
                         return False

@@ -10,9 +10,7 @@ class Solution:
             while prev < next and bank[prev].count("1") == 0:
                 prev += 1
             if prev < next and bank[next].count("1") != 0:
-                beams += (
-                    bank[prev].count("1") * bank[next].count("1")
-                    )
+                beams += bank[prev].count("1") * bank[next].count("1")
                 prev = next
             next += 1
 

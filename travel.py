@@ -1,4 +1,3 @@
-
 """
 author : Dhruv Sharma , Mona Anil Udasi
 
@@ -12,10 +11,13 @@ as well as a time cost (either a 1, 2 or 3) to travel along that edge.
 Design an O(mn) algorithm that determines whether it is possible for you to safely reach your
 destination without exceeding your budget or being late for the performance.
 """
+
 import math
 
 
-def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget, time_budget):
+def bellman_ford_modified(
+    edge_list, vertices, source, destination, cost_budget, time_budget
+):
     """
     bellman ford algorithm that calculates the shortest path weight to each node from a
     defined source , else finds negative weight cycle
@@ -36,7 +38,7 @@ def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget,
     # we are going to also include extra information that stores the path length as well
     # the node info is as : [cost of path to node from src , parent , path_length]
     for i in range(0, vertices):
-        node_information[i] = [float('inf'), None, 0]
+        node_information[i] = [float("inf"), None, 0]
 
     # initialize the start vertex , the source will always have 0 weight unless of
     # course you have a negative weight cycle
@@ -70,8 +72,10 @@ def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget,
 
                 # since we are building from the beginning , this is enough
 
-                if node_information[u][0] + edge_info[2] < new_node_information[v][0] \
-                        and node_information[u][2] + 1 <= it_number:
+                if (
+                    node_information[u][0] + edge_info[2] < new_node_information[v][0]
+                    and node_information[u][2] + 1 <= it_number
+                ):
                     # print("the edge considered is : " + str(u) + " -> " + str(v))
                     new_node_information[v][0] = node_information[u][0] + edge_info[2]
                     # update the parent of v as u
@@ -83,7 +87,7 @@ def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget,
 
         # print("the number of updates we have in this iteration are : " + str(updates))
 
-        '''
+        """
         if updates == 0:
             print("actually we do not require only more update steps !!!")
         
@@ -98,7 +102,7 @@ def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget,
             print(str(node) + " : " + str(info))
         print("\n")
         print("****")
-        '''
+        """
         for key, val in new_node_information.items():
             node_information[key] = val.copy()
 
@@ -107,14 +111,15 @@ def bellman_ford_modified(edge_list, vertices, source, destination, cost_budget,
 
     # so we to compare floats and avoid precision errors i use epsilon
     e = 0.00000000001
-    if (new_node_information[destination][0] < float(cost_budget)) \
-            or (abs(new_node_information[destination][0] - float(cost_budget)) <= e):
+    if (new_node_information[destination][0] < float(cost_budget)) or (
+        abs(new_node_information[destination][0] - float(cost_budget)) <= e
+    ):
         print("YES")
     else:
         print("NO")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # the input will be read and stored as an edge-list
     line = list(input().strip().split())
     number_of_travel_locations = int(line[0])  # Read number of vertices
@@ -138,15 +143,21 @@ if __name__ == '__main__':
 
     for index in range(0, travel_edges):
         line = list(input().strip().split())
-        edge_list.append([min(int(line[0]), int(line[1])), max(int(line[0]), int(line[1])),
-                          int(line[2]), int(line[3])])
-    '''
+        edge_list.append(
+            [
+                min(int(line[0]), int(line[1])),
+                max(int(line[0]), int(line[1])),
+                int(line[2]),
+                int(line[3]),
+            ]
+        )
+    """
     print("the edges stored are as : ")
     for edge_info in edge_list:
         print(str(edge_info))
 
     print()
-    '''
+    """
     # print("the number of edges are : " + str(travel_edges))
 
     # we are going to modify the edges for 1 length time only
@@ -172,18 +183,28 @@ if __name__ == '__main__':
             new_node_number += 2
 
         for index in range(1, len(nodes)):
-            modified_edge_list.append((nodes[index], nodes[index - 1], float(cost / time)))
-            modified_edge_list.append((nodes[index - 1], nodes[index], float(cost / time)))
+            modified_edge_list.append(
+                (nodes[index], nodes[index - 1], float(cost / time))
+            )
+            modified_edge_list.append(
+                (nodes[index - 1], nodes[index], float(cost / time))
+            )
 
     travel_edges = len(modified_edge_list)
     # print("the number of edges are : " + str(travel_edges))
     new_number_of_travel_locations = new_node_number
     # print("the new number of vertices are : " + str(number_of_travel_locations))
 
-    '''
+    """
     print("the modified edge list : ")
     for info in modified_edge_list:
         print(str(info))
-    '''
-    bellman_ford_modified(modified_edge_list, new_number_of_travel_locations, 0, number_of_travel_locations - 1,
-                          cost_budget, time_budget)
+    """
+    bellman_ford_modified(
+        modified_edge_list,
+        new_number_of_travel_locations,
+        0,
+        number_of_travel_locations - 1,
+        cost_budget,
+        time_budget,
+    )

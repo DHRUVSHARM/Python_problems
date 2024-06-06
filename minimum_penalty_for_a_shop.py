@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = "nnNNYY"
     arr = list(s)
     print(arr)
@@ -12,12 +12,12 @@ class Solution:
         open = [0 for _ in range(0, len(customer_array))]
         closed = [0 for _ in range(0, len(customer_array) + 1)]
 
-        open[0] = 0 if customer_array[0] == 'Y' else 1
+        open[0] = 0 if customer_array[0] == "Y" else 1
         for index in range(1, len(customer_array)):
-            open[index] = open[index - 1] + (customer_array[index] == 'N')
+            open[index] = open[index - 1] + (customer_array[index] == "N")
 
         for index in range(len(customer_array) - 1, -1, -1):
-            closed[index] = closed[index + 1] + (customer_array[index] == 'Y')
+            closed[index] = closed[index + 1] + (customer_array[index] == "Y")
 
         minimal_penalty, closing_index = float("inf"), -1
         for index in range(0, len(customer_array) + 1):

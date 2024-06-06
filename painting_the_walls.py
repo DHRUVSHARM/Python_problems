@@ -27,11 +27,11 @@ class Solution:
 
             if index == len(cost):
                 # we are here and a remaining job is still left , not possible
-                return (10 ** 6) * 500 * 10
+                return (10**6) * 500 * 10
 
             result = min(
                 cost[index] + dfs(index + 1, remaining_jobs - 1 - time[index]),
-                dfs(index + 1, remaining_jobs)
+                dfs(index + 1, remaining_jobs),
             )
 
             dp[(index, remaining_jobs)] = result

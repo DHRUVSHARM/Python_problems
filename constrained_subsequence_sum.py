@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
     def constrainedSubsetSum(self, nums: List[int], k: int) -> int:
-        final_ans, max_frontier = -1 * (10 ** 4) + 7, []
+        final_ans, max_frontier = -1 * (10**4) + 7, []
 
         # efficient heap based dp solution
         for index, element in enumerate(nums):
@@ -18,10 +18,7 @@ class Solution:
                 heapq.heappop(max_frontier)
 
             if len(max_frontier):
-                curr_max_sum = max(
-                    curr_max_sum,
-                    (-1 * max_frontier[0][0]) + element
-                )
+                curr_max_sum = max(curr_max_sum, (-1 * max_frontier[0][0]) + element)
 
             # print(curr_max_sum)
 

@@ -15,9 +15,6 @@ class Solution:
         ans = len(s)
         for freq, f_oc_i in repeat.values():
             if freq == 1:
-                ans = min(
-                    ans,
-                    f_oc_i
-                )
+                ans = min(ans, f_oc_i)
 
         return -1 if ans == len(s) else ans

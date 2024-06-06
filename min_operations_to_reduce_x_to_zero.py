@@ -17,9 +17,6 @@ class Solution:
             # print(left, " ", r, sub_sum)
             if sub_sum == target:
                 # print("consider : ", left, " ", r)
-                min_operations = min(
-                    min_operations,
-                    len(nums) - (r - left + 1)
-                )
+                min_operations = min(min_operations, len(nums) - (r - left + 1))
 
         return -1 if min_operations == float("inf") else min_operations

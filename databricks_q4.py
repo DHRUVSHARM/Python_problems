@@ -15,6 +15,7 @@ def solution(numbers):
                         unique_pairs += 1
     return unique_pairs
 """
+
 """
 def standard_representation(num):
     # Sorts the digits of the number and returns a string representation
@@ -92,7 +93,7 @@ result = solution(numbers)
 print("Number of pairs:", result)
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # ans = solution([1, 23, 156, 1650, 451, 165, 32, 10, 10])
     ans = solution([123, 321, 123])
 

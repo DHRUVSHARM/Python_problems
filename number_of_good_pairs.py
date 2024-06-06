@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = [11, 1, 1, 1, 3, 4, 5, 5, 4]
     fq = collections.Counter(n)
     print(fq)
@@ -13,8 +13,6 @@ class Solution:
         pairs = 0
 
         for freq in frequency.values():
-            pairs += (
-                    ((freq - 1) * (freq)) // 2
-            )
+            pairs += ((freq - 1) * (freq)) // 2
 
         return pairs

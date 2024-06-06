@@ -5,7 +5,7 @@ class Solution:
         def sum_of_digits_squared(element: int) -> int:
             sum = 0
             while element:
-                sum += ((element % 10)**2)
+                sum += (element % 10) ** 2
                 element //= 10
             return sum
 

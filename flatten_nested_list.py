@@ -26,7 +26,7 @@ class NestedInteger:
 
 import collections
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     x = collections.deque([1, 2, 3])
     print(x)
 
@@ -61,6 +61,7 @@ class NestedIterator:
 
     def hasNext(self) -> bool:
         return len(self.d) > 0
+
 
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []

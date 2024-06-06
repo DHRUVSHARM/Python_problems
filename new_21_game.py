@@ -1,11 +1,10 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     for i in range(3, -1, -1):
         print(i)
 
 
 class Solution:
     def new21Game(self, n: int, k: int, maxPts: int) -> float:
-
         """
         dp = {}
 
@@ -48,7 +47,7 @@ class Solution:
         for i in range(k - 1, -1, -1):
             # print("window size : ", i, r, i)
             dp[i] = window_sum / maxPts
-            window_sum += (dp[i] - dp[r])
+            window_sum += dp[i] - dp[r]
             r -= 1
 
         return dp[0]

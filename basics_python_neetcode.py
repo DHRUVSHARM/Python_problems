@@ -24,7 +24,7 @@ class MyClass:
         return 2 * self.getLength()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # this is how you comment !!!
     # multiline conditionals
 
@@ -37,9 +37,9 @@ if __name__ == '__main__':
 
     n, m = 100, 99
     if (n > 20 and m < 100) and m > 100:
-        print("correct", end='')
+        print("correct", end="")
     else:
-        print("false", end='! ')
+        print("false", end="! ")
 
     # default at end reverts to newline if end is not specified
     print("now testing loops ")
@@ -314,7 +314,6 @@ if __name__ == '__main__':
     print("************************************************")
     print("very important function stuff !!!")
 
-
     # using non local allows variable x to be bound to the nearest outer scope
     # excluding global variables
     def outer():
@@ -334,24 +333,25 @@ if __name__ == '__main__':
             x = 2
             innermost()
             # the above x is changed due to nonlocal
-            if x == 3: print('Inner x has been modified')
+            if x == 3:
+                print("Inner x has been modified")
             # now the changes will not propagate out from here
 
         # entry pt here
         x = 1
         inner()
         # no change
-        if x == 3: print('Outer x has been modified')
+        if x == 3:
+            print("Outer x has been modified")
         # not modified
-
 
     # declared here for the first time
     x = 0
     outer()
-    if x == 3: print('Global x has been modified')
+    if x == 3:
+        print("Global x has been modified")
 
     print("\n another example !!")
-
 
     def outer(a, b):
         c = "c"
@@ -367,12 +367,10 @@ if __name__ == '__main__':
         print("the modified c is : " + str(c))
         return result
 
-
     print(outer("a", "b"))
 
     print("******************************************************")
     print("last example stuff")
-
 
     def double(arr, val):
         def helper():
@@ -389,7 +387,6 @@ if __name__ == '__main__':
 
         helper()
         print(arr, val)
-
 
     nums = [1, 2]
     val = 3

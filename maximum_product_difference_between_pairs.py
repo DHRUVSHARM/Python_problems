@@ -8,10 +8,7 @@ class Solution:
         ans = 0
         max1, max2, min1, min2 = start_vals
 
-        ans = max(
-            ans,
-            (max1 * max2) - (min1 * min2)
-        )
+        ans = max(ans, (max1 * max2) - (min1 * min2))
 
         # print(max1, max2, min1, min2)
 
@@ -25,10 +22,7 @@ class Solution:
             elif min2 < nums[index] <= min1:
                 min1 = nums[index]
 
-            ans = max(
-                ans,
-                (max1 * max2) - (min1 * min2)
-            )
+            ans = max(ans, (max1 * max2) - (min1 * min2))
 
             # print(max1, max2, min1, min2)
 

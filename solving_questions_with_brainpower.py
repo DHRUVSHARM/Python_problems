@@ -10,9 +10,6 @@ class Solution:
 
         for index in range(n - 1, -1, -1):
             points, brainpower = questions[index]
-            dp[index] = max(
-                dp[index + 1],
-                points + dp[min(index + brainpower + 1, n)]
-            )
+            dp[index] = max(dp[index + 1], points + dp[min(index + brainpower + 1, n)])
 
         return dp[0]

@@ -7,6 +7,7 @@ must be provided with an initial item to “tweet” to guarantee that all the i
 in the network end up “tweeting” or “retweeting” the item.
 
 """
+
 import math
 import sys
 from collections import deque
@@ -21,7 +22,9 @@ def dfs_finish_and_visit(root, nodes_list, finish, finish_time_and_is_visited, s
     for neighbour in nodes_list[root]:
         if finish_time_and_is_visited[neighbour][1] is False:
             # unvisited node is a neighbour , we need to visit it now
-            dfs_finish_and_visit(neighbour, nodes_list, finish, finish_time_and_is_visited, stack)
+            dfs_finish_and_visit(
+                neighbour, nodes_list, finish, finish_time_and_is_visited, stack
+            )
 
     # this node's work is finished
     finish[0] += 1
@@ -72,18 +75,20 @@ def minimal_items_required(adj_list, n):
     for node in range(0, n):
         if finish_time_and_is_visited[node][1] is False:
             # unvisited node
-            dfs_finish_and_visit(node, nodes_list, finish, finish_time_and_is_visited, stack)
+            dfs_finish_and_visit(
+                node, nodes_list, finish, finish_time_and_is_visited, stack
+            )
 
     # print("the final node information for our algo is as : ")
-    '''
+    """
     for i in range(0, n):
         print(str(i) + " : " + str(finish_time_and_is_visited[i]))
-    '''
+    """
     # now we will store the nodes in a topological order
-    '''
+    """
     print("the reverse finish order : ")
     print(str(stack))
-    '''
+    """
     # reinitializing the seen array
     seen = []
     for _ in range(0, n):
@@ -99,7 +104,7 @@ def minimal_items_required(adj_list, n):
     return components
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = int(input())  # Read number of vertices
     # print("the number of nodes are : " + str(n))
 
@@ -112,14 +117,14 @@ if __name__ == '__main__':
         # print(str(line))
         followers = []
         for j in range(0, len(line)):
-            if line[j] == '-1':
+            if line[j] == "-1":
                 break
             followers.append(int(line[j]))
         nodes_list.append(followers)
 
     # print("the adjacency list created is : ")
-    '''
+    """
     for i in range(0, len(nodes_list)):
         print(str(i) + " : " + str(nodes_list[i]))
-    '''
+    """
     print(str(minimal_items_required(nodes_list, n)))

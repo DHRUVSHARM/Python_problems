@@ -18,6 +18,6 @@ def solution(sentence):
     return ans
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ans = solution("Dooddle moodle Pepper unsuccessfully")
     print(ans)

@@ -9,9 +9,6 @@ class Solution:
             if s[index] not in first_occur:
                 first_occur[s[index]] = index
             else:
-                ans = max(
-                    ans,
-                    index - first_occur[s[index]] - 1
-                )
+                ans = max(ans, index - first_occur[s[index]] - 1)
 
         return ans

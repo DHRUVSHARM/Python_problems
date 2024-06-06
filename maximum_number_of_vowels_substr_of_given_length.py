@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = "abciiidef"
     # strings can be iterated over like this
     for ele in s:
@@ -21,7 +21,7 @@ Explanation: The substring "iii" contains 3 vowel letters.
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
         # we have the case of fixed sliding window
-        vowels, curr_ans, ans, l = {'a', 'e', 'i', 'o', 'u'}, 0, 0, 0
+        vowels, curr_ans, ans, l = {"a", "e", "i", "o", "u"}, 0, 0, 0
         # the outer loop moves forward 1 at a time always
         for r in range(0, len(s)):
             if s[r] in vowels:

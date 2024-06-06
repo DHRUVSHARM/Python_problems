@@ -26,7 +26,7 @@ def lcs(x, y):
     print("the lcs is : ", dp[len(Y)][len(X)])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     x = "hearty"
     y = "hyena"
     lcs(x, y)

@@ -30,12 +30,16 @@ class Solution:
             width = t_r[1] - t_l[1]
 
             for i in range(0, width):
-                rotate([t_l[0], t_l[1] + i], [t_r[0] + i, t_r[1]],
-                       [b_r[0], b_r[1] - i], [b_l[0] - i, b_l[1]])
+                rotate(
+                    [t_l[0], t_l[1] + i],
+                    [t_r[0] + i, t_r[1]],
+                    [b_r[0], b_r[1] - i],
+                    [b_l[0] - i, b_l[1]],
+                )
 
             t_l = [t_l[0] + 1, t_l[1] + 1]
             t_r = [t_r[0] + 1, t_r[1] - 1]
             b_r = [b_r[0] - 1, b_r[1] - 1]
             b_l = [b_l[0] - 1, b_l[1] + 1]
 
-            print(t_l , t_r , b_r ,b_l)
+            print(t_l, t_r, b_r, b_l)

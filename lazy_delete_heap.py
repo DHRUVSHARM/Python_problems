@@ -16,7 +16,7 @@ class lazy_heap:
         self.entry_finder = {}
         # maps the task label -> [priority , adding order , task label]
 
-        self.REMOVED = '<removed-task>'
+        self.REMOVED = "<removed-task>"
         # placeholder for a removed task
 
         self.counter = itertools.count()
@@ -25,7 +25,7 @@ class lazy_heap:
     # functions for use
     def add_task(self, task, priority=0):
         """Add a new task or update the priority of an existing task
-            default priority given is 0
+        default priority given is 0
         """
         if task in self.entry_finder:
             # we are trying to change the priority of the element
@@ -54,7 +54,7 @@ class lazy_heap:
                 del self.entry_finder[task]
                 # deleting first non remove marked key but not returning anything
                 return task
-        raise KeyError('pop from an empty priority queue')
+        raise KeyError("pop from an empty priority queue")
         # means that the queue is empty
 
     def peek(self):
@@ -65,17 +65,17 @@ class lazy_heap:
                 heappop(self.pq)
             else:
                 return self.pq[0][2]
-        raise KeyError('peek from an empty priority queue')
+        raise KeyError("peek from an empty priority queue")
         # means that the queue is empty
 
     def get_size(self):
         return len(self.entry_finder)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    d = {1 : "hello"}
-    #d.pop(100)
+    d = {1: "hello"}
+    # d.pop(100)
     print(d)
 
     lazy_minHeap = lazy_heap()

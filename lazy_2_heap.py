@@ -1,9 +1,8 @@
-
 import collections
 import heapq
 
 
-class IntegerContainerImpl():
+class IntegerContainerImpl:
 
     def __init__(self):
         # TODO: implement
@@ -101,12 +100,3 @@ class IntegerContainerImpl():
             heapq.heappop(self.right)
 
         return -self.left[0] if self.left else None
-
-
-
-
-
-
-
-
-

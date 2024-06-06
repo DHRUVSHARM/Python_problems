@@ -15,7 +15,7 @@ class Solution:
                 return -1
             else:
                 if value % 3 == 0:
-                    ops += (value // 3)
+                    ops += value // 3
                 elif value % 3 == 1:
                     ops += ((value // 3) - 1) + 2
                 else:

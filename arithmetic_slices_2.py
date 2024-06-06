@@ -2,7 +2,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = {(1, 2): 100}
     x = a.get((0, 0), 0)
     print(x)
@@ -18,7 +18,7 @@ class Solution:
         for i in range(1, len(nums)):
             for j in range(i - 1, -1, -1):
                 cd = nums[i] - nums[j]
-                dp[(i, cd)] += (1 + dp[(j, cd)])
+                dp[(i, cd)] += 1 + dp[(j, cd)]
 
         ans = 0
         for value in dp.values():

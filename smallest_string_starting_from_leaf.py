@@ -11,13 +11,11 @@ class TreeNode:
 
 from typing import Optional
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = []
-
 
     def foo():
         a.append(2)
-
 
     foo()
     print(a)
@@ -75,5 +73,5 @@ class Solution:
 
         helper(root)
         print(self.final_result)
-        self.final_result = [chr(ord('a') + element) for element in self.final_result]
+        self.final_result = [chr(ord("a") + element) for element in self.final_result]
         return "".join(self.final_result)

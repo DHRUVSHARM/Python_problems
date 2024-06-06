@@ -22,10 +22,8 @@ class Solution:
             for dx, dy in directions:
                 if x + dx < rows and y + dy < cols and (x + dx, y + dy) not in visited:
                     visited.add((x + dx, y + dy))
-                    heapq.heappush(minHeap, (
-                        max(elevation, grid[x + dx][y + dy]),
-                        x + dx,
-                        y + dy
-                    ))
+                    heapq.heappush(
+                        minHeap, (max(elevation, grid[x + dx][y + dy]), x + dx, y + dy)
+                    )
 
         return result

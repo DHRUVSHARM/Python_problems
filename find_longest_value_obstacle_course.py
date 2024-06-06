@@ -1,7 +1,7 @@
 import bisect
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 2-D lists
     arr = [[0] * 4 for i in range(4)]
     print(arr)
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     print(arr)
 
     # bisect method helps in upper and lower bound
-    arr = [0, float('inf')]
+    arr = [0, float("inf")]
     index = bisect.bisect(arr, 10)
     print("index : ", index)
 
@@ -37,8 +37,10 @@ class Solution:
         """
         # optimized solution  , o(nlogn)
         # for simplicity base case
-        obstacle_lis = [0 for _ in range(0, len(obstacles))]  # keeps track of the answer
-        dp = [float('inf') for _ in range(0, len(obstacles) + 1)]
+        obstacle_lis = [
+            0 for _ in range(0, len(obstacles))
+        ]  # keeps track of the answer
+        dp = [float("inf") for _ in range(0, len(obstacles) + 1)]
         # keeps track of the smallest frontier for each length
         dp[0] = 0  # for handling edge cases
 

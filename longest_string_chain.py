@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     words = ["xbc", "pcxbcf", "xb", "cxbc", "pcxbc"]
     words.sort(key=lambda w: len(w))
     print(words)
@@ -9,7 +9,7 @@ if __name__ == '__main__':
     x = "a"
     for i in range(0, len(x)):
         print("word :")
-        print(x[:i] + "" + x[i + 1:])
+        print(x[:i] + "" + x[i + 1 :])
 
 
 class Solution:
@@ -21,12 +21,7 @@ class Solution:
         for w in words:
             # print(dp)
             for index in range(len(w)):
-                dp[w] = max(dp[w] ,
-                dp.get(
-                    w[:index] + "" + w[index + 1:],
-                    0
-                ) + 1
-                )
+                dp[w] = max(dp[w], dp.get(w[:index] + "" + w[index + 1 :], 0) + 1)
 
         max_length = 0
         for length in dp.values():

@@ -24,14 +24,14 @@ def main():
             # Store the converted values
             cracks.append((time_unit, size))
 
-        cracks.append((10 ** 7, -1))
+        cracks.append((10**7, -1))
 
     # Store inputs in a dictionary for easy access or manipulation
     dam_data = {
         "n": n,
         "threshold": threshold,
         "drain_rate": drain_rate,
-        "cracks": cracks
+        "cracks": cracks,
     }
 
     # For demonstration: print the collected data
@@ -77,30 +77,47 @@ def main():
 
                 biggest_crack, insert_time = heapq.heappop(maxHeap)
                 crack_increase = (len(maxHeap) + 1) * (current_time - insert_time)
-                biggest_crack *= (-1)
+                biggest_crack *= -1
                 adjusted_biggest_crack = biggest_crack + (current_time - insert_time)
                 # size of the biggest crack after increase
 
-                flood_level = max(flood_level + inflow + crack_increase - drain_rate - adjusted_biggest_crack, 0)
-                max_flood_level_reached = max(
-                    max_flood_level_reached,
+                flood_level = max(
                     flood_level
+                    + inflow
+                    + crack_increase
+                    - drain_rate
+                    - adjusted_biggest_crack,
+                    0,
                 )
+                max_flood_level_reached = max(max_flood_level_reached, flood_level)
 
-                print(f"Biggest crack before adjustment: {-biggest_crack}, Insert time: {insert_time}, "
-                      f"Current time: {current_time}, Adjusted biggest crack size: {adjusted_biggest_crack}, "
-                      f"New flood level: {flood_level}, with components - Inflow: {inflow}, Crack increase: {crack_increase}, "
-                      f"Drain rate: {drain_rate}")
+                print(
+                    f"Biggest crack before adjustment: {-biggest_crack}, Insert time: {insert_time}, "
+                    f"Current time: {current_time}, Adjusted biggest crack size: {adjusted_biggest_crack}, "
+                    f"New flood level: {flood_level}, with components - Inflow: {inflow}, Crack increase: {crack_increase}, "
+                    f"Drain rate: {drain_rate}"
+                )
 
                 if flood_level >= threshold:
                     print("FLOOD !!!!")
-                    print(" flood_level , current_time : ", flood_level, " , ", current_time)
+                    print(
+                        " flood_level , current_time : ",
+                        flood_level,
+                        " , ",
+                        current_time,
+                    )
                     return
 
                 inflow -= biggest_crack
                 current_time += 1
 
-                print("current_time : ", current_time, " ", "crack_increase : ", crack_increase)
+                print(
+                    "current_time : ",
+                    current_time,
+                    " ",
+                    "crack_increase : ",
+                    crack_increase,
+                )
 
             print("done popping and all .....\n")
 
@@ -111,7 +128,7 @@ def main():
                 elements = []
                 while len(maxHeap):
                     cs, ct = heapq.heappop(maxHeap)
-                    cs *= (-1)
+                    cs *= -1
                     inflow -= cs
                     adjusted_size = cs + (current_time - ct)
                     inflow += adjusted_size
@@ -130,10 +147,17 @@ def main():
             # fast-forward
             print("fast forwarding .. ", current_time)
 
-            flood_level = max(flood_level - drain_rate * (appear_time - current_time), 0)
+            flood_level = max(
+                flood_level - drain_rate * (appear_time - current_time), 0
+            )
             print("flood level as a result of fast-forwarding : ", flood_level)
             current_time = prev_time
-            print("new prev , and current time forwarded ... ", prev_time, " , ", current_time)
+            print(
+                "new prev , and current time forwarded ... ",
+                prev_time,
+                " , ",
+                current_time,
+            )
 
         # keep pushing
         print("simple push ..")

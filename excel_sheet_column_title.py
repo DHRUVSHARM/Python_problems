@@ -1,8 +1,8 @@
-if __name__ == '__main__':
-    element = 'A'
-    e = chr(ord('A') + 1)
+if __name__ == "__main__":
+    element = "A"
+    e = chr(ord("A") + 1)
     print(e)
-    dictionary = {i: chr(ord('A') + i - 1) for i in range(1, 27)}
+    dictionary = {i: chr(ord("A") + i - 1) for i in range(1, 27)}
     print(dictionary)
 
 
@@ -13,7 +13,7 @@ class Solution:
         # right shift , multiplying is left shift ( all ops by base of the number system)
         # 0 based since we use mod and all
         while columnNumber:
-            result = chr(ord('A') + (columnNumber - 1) % 26) + result
+            result = chr(ord("A") + (columnNumber - 1) % 26) + result
             columnNumber = (columnNumber - 1) // 26
 
         return result

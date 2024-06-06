@@ -22,9 +22,6 @@ class Solution:
             if diff not in diff_prefix:
                 diff_prefix[diff] = index
             else:
-                ans = max(
-                    ans,
-                    index - diff_prefix[diff]
-                )
+                ans = max(ans, index - diff_prefix[diff])
 
         return ans

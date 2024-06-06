@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for z in range(0, 5):
         l, r = 1, 1 + z
         while r < 5 + 1:

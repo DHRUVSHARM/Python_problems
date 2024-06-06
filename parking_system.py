@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
@@ -13,6 +13,7 @@ class ParkingSystem:
             return False
         self.parking_spaces[carType - 1] -= 1
         return True
+
 
 # Your ParkingSystem object will be instantiated and called as such:
 # obj = ParkingSystem(big, medium, small)

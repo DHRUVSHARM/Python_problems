@@ -9,4 +9,4 @@ class Solution:
                     if j - dice_val >= 0:
                         dp[i][j] += dp[i - 1][j - dice_val]
 
-        return dp[n][target] % (10 ** 9 + 7)
+        return dp[n][target] % (10**9 + 7)

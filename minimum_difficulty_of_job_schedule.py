@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(float("inf") + 1)
 
 
@@ -32,7 +32,7 @@ class Solution:
                 result,
                 curr_max + dfs(index + 1, days - 1, float("-inf")),
                 # consider this as the end
-                dfs(index + 1, days, curr_max)
+                dfs(index + 1, days, curr_max),
                 # not consider as the end
             )
 

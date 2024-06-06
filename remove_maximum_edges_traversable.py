@@ -1,16 +1,16 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
 class UnionFind:
-    __slots__ = 'parent', 'rank', 'components'
+    __slots__ = "parent", "rank", "components"
 
     def __init__(self, n):
         self.parent = [i for i in range(0, n + 1)]
         self.rank = [1 for _ in range(0, n + 1)]
-        self.components = n # will help us keep track of the status of the union find
+        self.components = n  # will help us keep track of the status of the union find
 
     def find(self, v):
         """
@@ -71,7 +71,7 @@ class Solution:
         for edge in edges:
             edge_type, start, end = edge
             if edge_type == 3:
-                added_edges += (aliceUF.add(start, end) | bobUF.add(start, end))
+                added_edges += aliceUF.add(start, end) | bobUF.add(start, end)
 
         # now we will add edges and check accordingly
         for edge in edges:

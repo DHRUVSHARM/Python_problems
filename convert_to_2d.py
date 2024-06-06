@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [[] for _ in range(3)]
     print(arr)
 

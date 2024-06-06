@@ -22,7 +22,9 @@ class Solution:
             if not node:
                 return 0
             if start <= node.val <= end:
-                return dfs(node.left, start, end) + node.val + dfs(node.right, start, end)
+                return (
+                    dfs(node.left, start, end) + node.val + dfs(node.right, start, end)
+                )
             elif end < node.val:
                 return dfs(node.left, start, end)
             else:

@@ -16,12 +16,17 @@ Give an O(n
 connect your spies such that no message has to pass through an unreliable spy, or else
 outputs that it is impossible to do so.
 """
+
 import math
 
 
 def update(parent, g, n, fixed, node_info, isunreliable):
     for neighbour in range(0, n):
-        if g[parent][neighbour] != 0 and fixed[neighbour] is False and isunreliable[neighbour] is False:
+        if (
+            g[parent][neighbour] != 0
+            and fixed[neighbour] is False
+            and isunreliable[neighbour] is False
+        ):
             # non fixed neighbour that is reliable
             if g[parent][neighbour] < node_info[neighbour][0]:
                 node_info[neighbour][0] = g[parent][neighbour]
@@ -55,11 +60,11 @@ def solve(g, n, m, is_unreliable, k):
     # we only update those nodes which are reliable
     update(start, g, n, fixed, node_info, is_unreliable)
 
-    '''
+    """
     print("the node information is : ")
     for i in range(0, n):
         print(str(i) + " : " + str(node_info[i]))
-    '''
+    """
     minimal_cost_weight = 0
     for _ in range(1, n - k):
         min_node = -1
@@ -80,10 +85,10 @@ def solve(g, n, m, is_unreliable, k):
             # reliable node
             update(min_node, g, n, fixed, node_info, is_unreliable)
         # print("the node information is : ")
-        '''
+        """
         for i in range(0, n):
             print(str(i) + " : " + str(node_info[i]))
-        '''
+        """
     # print("************* now adding unreliable nodes *****************")
     # print("fixed is : " + str(fixed))
 
@@ -105,7 +110,7 @@ def solve(g, n, m, is_unreliable, k):
     return minimal_cost_weight
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     line = list(input().strip().split())
 
@@ -133,11 +138,11 @@ if __name__ == '__main__':
         line = list(input().strip().split())
         graph[int(line[0])][int(line[1])] = int(line[2])
         graph[int(line[1])][int(line[0])] = int(line[2])
-    '''
+    """
     print("the adjacency matrix is : ")
     for l in graph:
         print(l)
-    '''
+    """
     # print("unreliability map is : " + str(is_unreliable))
     # print("number of spies , connections : " + str(number_of_spies) + " , " + str(connections))
 

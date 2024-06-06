@@ -3,9 +3,10 @@
 str -> list(char's) conversion possible
 deque can be used to maintain relative order
 """
+
 from collections import deque
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     str = "dhruv"
     arr = list(str)
     print(arr)
@@ -22,9 +23,9 @@ class Solution:
         n, r_deque, d_deque = len(senate), deque(), deque()
 
         for index, element in enumerate(list(senate)):
-            if element == 'R':
+            if element == "R":
                 r_deque.append(index)
-            elif element == 'D':
+            elif element == "D":
                 d_deque.append(index)
 
         while len(r_deque) != 0 and len(d_deque) != 0:
@@ -34,4 +35,4 @@ class Solution:
             else:
                 d_deque.append(d + n)
 
-        return 'Radiant' if len(r_deque) != 0 else 'Dire'
+        return "Radiant" if len(r_deque) != 0 else "Dire"

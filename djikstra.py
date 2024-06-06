@@ -1,6 +1,7 @@
 """
 implementation of the djikstra's algo with graph implemented as an adjacency matrix
 """
+
 import math
 
 
@@ -18,8 +19,13 @@ def update(parent, graph, n, node_information, fixed):
     for neighbour in range(0, n):
         if fixed[neighbour] is False and graph[parent][neighbour] != 0:
             # unfixed neighbour whose distance from source can be updated
-            if node_information[neighbour][0] > node_information[parent][0] + graph[parent][neighbour]:
-                node_information[neighbour][0] = node_information[parent][0] + graph[parent][neighbour]
+            if (
+                node_information[neighbour][0]
+                > node_information[parent][0] + graph[parent][neighbour]
+            ):
+                node_information[neighbour][0] = (
+                    node_information[parent][0] + graph[parent][neighbour]
+                )
                 node_information[neighbour][1] = parent
 
 
@@ -69,7 +75,7 @@ def djikstra_algorithm(graph, n, source):
         print(str(node) + " : " + str(node_info))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     line = list(input().strip().split())
 

@@ -26,10 +26,10 @@ def pf(n):
     return prime_factors
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(pf(1))
     print(pf(2))
     print(pf(17))
     print(pf(15))
-    print(pf(2 ** 3 * 5 ** 3 * 17 ** 2))
-    print(pf(2 ** 3 * 5 ** 3 * 17))
+    print(pf(2**3 * 5**3 * 17**2))
+    print(pf(2**3 * 5**3 * 17))

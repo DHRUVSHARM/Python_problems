@@ -39,8 +39,7 @@ class Solution:
                 sum += piles[l + x - 1]
 
                 dp[(l, r, m, player)] = max(
-                    dp[(l, r, m, player)],
-                    sum - dfs(l + x, r, max(m, x), player ^ 1)
+                    dp[(l, r, m, player)], sum - dfs(l + x, r, max(m, x), player ^ 1)
                 )
 
             return dp[(l, r, m, player)]

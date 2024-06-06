@@ -22,19 +22,13 @@ class Solution:
 
             ans = float("inf")
             for dx, dy in directions:
-                ans = min(
-                    ans,
-                    matrix[i][j] + dfs(i + dx, j + dy)
-                )
+                ans = min(ans, matrix[i][j] + dfs(i + dx, j + dy))
 
             dp[i][j] = ans
             return ans
 
         result = float("inf")
         for index in range(len(matrix)):
-            result = min(
-                result,
-                dfs(0, index)
-            )
+            result = min(result, dfs(0, index))
 
         return result

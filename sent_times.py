@@ -3,7 +3,10 @@ def sent_times():
     transmission_time = 2
     packet_id = [4, 7, 10, 6]
 
-    packet_id, time = [element % number_of_ports for element in packet_id], [0 for _ in range(number_of_ports)],
+    packet_id, time = (
+        [element % number_of_ports for element in packet_id],
+        [0 for _ in range(number_of_ports)],
+    )
     ans = [0 for _ in range(len(packet_id))]
 
     for index, p_id in enumerate(packet_id):
@@ -19,5 +22,5 @@ def sent_times():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sent_times()

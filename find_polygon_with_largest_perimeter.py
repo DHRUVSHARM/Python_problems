@@ -8,10 +8,7 @@ class Solution:
         running_sum, result = nums[0] + nums[1], -1
         for r in range(2, len(nums)):
             if running_sum > nums[r]:
-                result = max(
-                    result,
-                    running_sum + nums[r]
-                )
+                result = max(result, running_sum + nums[r])
             running_sum += nums[r]
 
         return result

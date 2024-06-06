@@ -1,11 +1,10 @@
 # interesting divide and conquer style problem
 import math
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(math.fmod(-4, 2))
     print(int(-5 / 2))
     print(5 // 2)
-
 
     def chop(n: int):
         if n == 1:
@@ -13,7 +12,6 @@ if __name__ == '__main__':
             return
         print(int(n / 2))
         chop(int(n / 2))
-
 
     chop(2147483647)
 

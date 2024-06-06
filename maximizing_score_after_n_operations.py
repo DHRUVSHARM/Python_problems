@@ -28,7 +28,7 @@ Just remember about that infinite series of 1 bits in a negative number, and the
 import math
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(math.gcd(7, 67))
 
 
@@ -60,7 +60,8 @@ class Solution:
                     new_mask = mask | (1 << (n - i - 1)) | (1 << (n - j - 1))
                     ans = max(
                         ans,
-                        operation_number * math.gcd(nums[i], nums[j]) + dfs(new_mask, operation_number + 1)
+                        operation_number * math.gcd(nums[i], nums[j])
+                        + dfs(new_mask, operation_number + 1),
                     )
 
             dp[mask] = ans

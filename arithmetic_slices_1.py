@@ -44,7 +44,7 @@ class Solution:
         ans = 0
 
         for i in range(2, len(nums)):
-            if (nums[i] - nums[i-1]) == (nums[i-1] - nums[i-2]):
+            if (nums[i] - nums[i - 1]) == (nums[i - 1] - nums[i - 2]):
                 dp[i] = 1 + dp[i - 1]
                 ans += dp[i]
 

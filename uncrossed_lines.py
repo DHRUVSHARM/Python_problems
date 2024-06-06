@@ -1,10 +1,10 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     prev, next = [1, 2, 3], [4, 5, 6]
     prev = next
     prev.clear()
-    print(prev , next)
+    print(prev, next)
 
 
 class Solution:

@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     points = [[1, 2], [2, 3], [3, 4], [4, 5], [1, 3], [1, -1]]
     points.sort(key=lambda element: (element[0], -1 * element[1]))
     print(points)

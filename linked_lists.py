@@ -1,7 +1,7 @@
 # collection of questions on linked lists
 from typing import Optional
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 # Definition for singly-linked list.

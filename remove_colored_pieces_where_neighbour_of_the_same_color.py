@@ -5,19 +5,13 @@ class Solution:
         for r in range(0, len(colors)):
             if r + 1 == len(colors) or colors[r] != colors[r + 1]:
                 # a substring of the same color is stopped
-                if colors[r] == 'A':
+                if colors[r] == "A":
                     # alice points
-                    alice_points += max(
-                        0,
-                        (r - left + 1) - 2
-                    )
+                    alice_points += max(0, (r - left + 1) - 2)
                     # print("alice : " , alice_points)
                 else:
                     # bob points
-                    bob_points += max(
-                        0,
-                        (r - left + 1) - 2
-                    )
+                    bob_points += max(0, (r - left + 1) - 2)
                     # print("bob : " , bob_points)
                 left = r + 1
 

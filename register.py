@@ -7,6 +7,7 @@ course also has a maximum number of students than can enroll, though this may be
 different courses. Create an efficient algorithm that will compute the maximum sum of registered
 students over all courses.
 """
+
 import copy
 import math
 from collections import deque
@@ -34,17 +35,20 @@ def bfs(graph, src, dest, n, capacity):
     while not len(queue) == 0:
         frontier = queue.popleft()
         for neighbour in graph[frontier]:
-            if node_information[neighbour][0] is False and capacity[frontier][neighbour] != 0:
+            if (
+                node_information[neighbour][0] is False
+                and capacity[frontier][neighbour] != 0
+            ):
                 # only unvisited and neighbours with some cap to reach
                 queue.append(neighbour)
                 node_information[neighbour][0] = True
                 node_information[neighbour][1] = frontier
 
-    '''
+    """
     print("after traversal printing the bfs node information : ")
     for i in range(0, n):
         print(str(i) + " : " + str(node_information[i]))
-    '''
+    """
     if node_information[dest][0] is False:
         # cannot reach dest
         return None
@@ -107,7 +111,7 @@ def ford_fulkerson(al, c, f, residual_al, residual_c, n, s, t, forward):
     print(str(max_flow))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     line = list(input().strip().split())
     number_of_students = int(line[0])  # Read the number of students
     number_of_courses = int(line[1])  # Read the number of courses
@@ -130,11 +134,15 @@ if __name__ == '__main__':
     # flow
     flow = [[0 for j in range(number_of_nodes)] for i in range(number_of_nodes)]
     # flow and capacity of our directed graph
-    is_forward = [[False for j in range(number_of_nodes)] for i in range(number_of_nodes)]
+    is_forward = [
+        [False for j in range(number_of_nodes)] for i in range(number_of_nodes)
+    ]
 
     # the src is connected to all the student nodes
 
-    for student in range(number_of_courses + 1, number_of_courses + number_of_students + 1):
+    for student in range(
+        number_of_courses + 1, number_of_courses + number_of_students + 1
+    ):
         adj_list[0].append(int(student))
         capacity[0][student] = 3  # each student can take max 3 courses
         flow[0][student] = 0
@@ -142,7 +150,9 @@ if __name__ == '__main__':
         # keeping track of forward edges
 
     # the students are connected to courses of their choice
-    for student in range(number_of_courses + 1, number_of_courses + number_of_students + 1):
+    for student in range(
+        number_of_courses + 1, number_of_courses + number_of_students + 1
+    ):
         courses_willing = list(input().strip().split())
         # print("the courses willing for student " + str(student) + " is : " + str(courses_willing))
         for course in courses_willing:
@@ -158,12 +168,14 @@ if __name__ == '__main__':
         course_capacity = int(line[0])
         # print("the course capacity for course : " + str(course) + " is " + str(course_capacity))
         adj_list[course].append(number_of_nodes - 1)
-        capacity[course][number_of_nodes - 1] = course_capacity  # capacity bound courses
+        capacity[course][
+            number_of_nodes - 1
+        ] = course_capacity  # capacity bound courses
         flow[course][number_of_nodes - 1] = 0
         is_forward[course][number_of_nodes - 1] = True
         # keeping track of forward edges
 
-    '''
+    """
     print("capacity : ")
     for r in capacity:
         print(str(r))
@@ -175,17 +187,25 @@ if __name__ == '__main__':
     print("adj list : ")
     for index in range(0, len(adj_list)):
         print(str(index) + " : " + str(adj_list[index]))
-    '''
+    """
     # this is our main graph
     residual_adjacency_list = copy.deepcopy(adj_list)
     residual_capacity = copy.deepcopy(capacity)
     residual_flow = copy.deepcopy(flow)
 
-    '''
+    """
     print("the residual graph is : ")
     for index in range(0, len(residual_adjacency_list)):
         print(str(index) + " : " + str(residual_adjacency_list[index]))
-    '''
-    ford_fulkerson(adj_list, capacity, flow, residual_adjacency_list, residual_capacity
-                   , number_of_nodes, 0, number_of_nodes - 1, is_forward)
-
+    """
+    ford_fulkerson(
+        adj_list,
+        capacity,
+        flow,
+        residual_adjacency_list,
+        residual_capacity,
+        number_of_nodes,
+        0,
+        number_of_nodes - 1,
+        is_forward,
+    )

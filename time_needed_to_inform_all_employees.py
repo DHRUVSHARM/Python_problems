@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     adj_list = collections.defaultdict(list)
     adj_list[1].append(2)
     print(adj_list)
@@ -13,7 +13,9 @@ if __name__ == '__main__':
 
 
 class Solution:
-    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
 
         max_inform_time = 0
         adj_list = collections.defaultdict(list[int])

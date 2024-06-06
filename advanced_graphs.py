@@ -1,8 +1,14 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
-    arr = [["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]
+if __name__ == "__main__":
+    arr = [
+        ["JFK", "SFO"],
+        ["JFK", "ATL"],
+        ["SFO", "ATL"],
+        ["ATL", "JFK"],
+        ["ATL", "SFO"],
+    ]
     arr.sort()
     print(arr)
 
@@ -12,7 +18,7 @@ if __name__ == '__main__':
     # print(d[0])
 
     l = [1, 2, 3, 4, 5]
-    print(l[:: -1])
+    print(l[::-1])
 
 
 class Solution:

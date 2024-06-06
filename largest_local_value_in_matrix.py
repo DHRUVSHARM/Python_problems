@@ -10,10 +10,7 @@ class Solution:
             for j in range(1, len(grid) - 1):
                 element = grid[i][j]
                 for dx, dy in dirs:
-                    element = max(
-                        element,
-                        grid[i + dx][j + dy]
-                    )
+                    element = max(element, grid[i + dx][j + dy])
 
                 result[i - 1][j - 1] = element
 

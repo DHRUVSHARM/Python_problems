@@ -3,9 +3,9 @@ class Solution:
         st, fix = [], set()
 
         for index, c in enumerate(s):
-            if c == '(':
+            if c == "(":
                 st.append(index)
-            elif c == ')':
+            elif c == ")":
                 if len(st):
                     fix.add(index)
                     fix.add(st[-1])
@@ -13,7 +13,7 @@ class Solution:
 
         ans = []
         for index, c in enumerate(s):
-            if c == '(' or c == ')':
+            if c == "(" or c == ")":
                 if index in fix:
                     ans.append(c)
             else:

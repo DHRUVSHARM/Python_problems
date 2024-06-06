@@ -2,7 +2,9 @@ from typing import List
 
 
 class Solution:
-    def validateBinaryTreeNodes(self, n: int, leftChild: List[int], rightChild: List[int]) -> bool:
+    def validateBinaryTreeNodes(
+        self, n: int, leftChild: List[int], rightChild: List[int]
+    ) -> bool:
         # the nodes available to us are numbered from 0 to n - 1
         # we keep track of the incoming edges number
         incoming_edges = {i: 0 for i in range(0, n)}

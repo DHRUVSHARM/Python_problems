@@ -2,7 +2,7 @@ import collections
 import math
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
@@ -17,7 +17,9 @@ class Solution:
                 if i != j:
                     xi, yi, radius_i = bombs[i]
                     xj, yj, radius_j = bombs[j]
-                    if math.pow(radius_i, 2) >= math.pow((xi - xj), 2) + math.pow((yi - yj), 2):
+                    if math.pow(radius_i, 2) >= math.pow((xi - xj), 2) + math.pow(
+                        (yi - yj), 2
+                    ):
                         adj_list[(xi, yi, i)].append((xj, yj, j))
 
         print(adj_list)
@@ -33,6 +35,8 @@ class Solution:
             return detonations + 1
 
         for index, bomb in enumerate(bombs):
-            max_detonations_possible = max(max_detonations_possible, dfs((bomb[0], bomb[1], index), set()))
+            max_detonations_possible = max(
+                max_detonations_possible, dfs((bomb[0], bomb[1], index), set())
+            )
 
         return max_detonations_possible

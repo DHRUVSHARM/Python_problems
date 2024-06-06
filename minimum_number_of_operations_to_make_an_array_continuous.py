@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nums = [1, 1, 1]
     freq = collections.Counter(nums)
     unique = []
@@ -31,10 +31,7 @@ class Solution:
                 pass
             else:
                 # we have to stop the window, and consider the next starting point
-                min_operations = min(
-                    min_operations,
-                    n - (r - left)
-                )
+                min_operations = min(min_operations, n - (r - left))
                 left += 1
 
         return min_operations

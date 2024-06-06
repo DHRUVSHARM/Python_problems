@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], people: List[int]
+    ) -> List[int]:
         flowers.sort()
         # sorting the people and the flowers by starting time
         count = 0

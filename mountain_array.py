@@ -11,10 +11,15 @@ class MountainArray:
 
 
 class Solution:
-    def findInMountainArray(self, target: int, mountain_arr: 'MountainArray') -> int:
+    def findInMountainArray(self, target: int, mountain_arr: "MountainArray") -> int:
         peak_index, left, right = -1, 0, mountain_arr.length() - 1
         mid = (left + right) // 2
-        print("left , right , mid : ", mountain_arr.get(left), mountain_arr.get(right), mountain_arr.get(mid))
+        print(
+            "left , right , mid : ",
+            mountain_arr.get(left),
+            mountain_arr.get(right),
+            mountain_arr.get(mid),
+        )
 
         while (right - left + 1) >= 3:
             print("left , right , mid : ", left, right, mid)

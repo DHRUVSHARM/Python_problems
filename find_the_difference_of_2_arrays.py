@@ -1,9 +1,10 @@
 """
 we will use hashset in this problem
 """
+
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     check = set()
     arr = [1, 2, 3, 1, 4]
     # duplicates are automatically ignored when adding to a set
@@ -15,11 +16,11 @@ if __name__ == '__main__':
     ans[0].append(1)
     print(ans)
 
-    arr1 = [1 , 2 , 3]
-    arr2 = [2 ,4,5 ,4 , 3]
+    arr1 = [1, 2, 3]
+    arr2 = [2, 4, 5, 4, 3]
 
-    for x , y in zip(arr1 , arr2):
-        print(x , y)
+    for x, y in zip(arr1, arr2):
+        print(x, y)
 
 """
 answer[0] is a list of all distinct integers in nums1 which are not present in nums2.

@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     dp = {}
     dp.get(2, 1)
     print(dp)
@@ -28,9 +28,9 @@ class DetectSquares:
             if (qx, b) in self.point_frequency and (a, qy) in self.point_frequency:
                 if abs(qx - a) == abs(qy - b) and (qx - a) != 0 and (qy - b) != 0:
                     result += (
-                            1
-                            * self.point_frequency.get((qx, b))
-                            * self.point_frequency.get((a, qy))
-                            * self.point_frequency.get((a, b))
+                        1
+                        * self.point_frequency.get((qx, b))
+                        * self.point_frequency.get((a, qy))
+                        * self.point_frequency.get((a, b))
                     )
         return result

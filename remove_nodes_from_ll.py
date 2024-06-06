@@ -29,5 +29,4 @@ class Solution:
                 curr.next = None
                 return tmp
 
-
         return helper(head)

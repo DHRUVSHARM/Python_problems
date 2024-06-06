@@ -1,7 +1,7 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # d = collections.defaultdict(list)
     # d[1] = [2 , None]
     # d[2] = [3 , "abs"]
@@ -23,8 +23,11 @@ class Solution:
         # node info : node -> (cost to connect , parent)
         # fixed : keeps track of the nodes in the mst
         # tree : set of edges making up the mst
-        node_information, fixed, tree = {node: [float("inf"), None] for node in range(n)}, \
-                                        {node: False for node in range(n)}, []
+        node_information, fixed, tree = (
+            {node: [float("inf"), None] for node in range(n)},
+            {node: False for node in range(n)},
+            [],
+        )
 
         def update(node):
             # updates weights

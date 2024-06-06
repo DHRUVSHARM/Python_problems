@@ -1,22 +1,22 @@
 import math
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(math.log2(1))
-    print(((2 & 3) << 1) & (2 ** 31 - 1))
-    element = 2 ** 31 - 1
+    print(((2 & 3) << 1) & (2**31 - 1))
+    element = 2**31 - 1
     print((1 << 31) & element)
     print((1 << 30) & element)
-    element = -(2 ** 31)
+    element = -(2**31)
     print((1 << 31) & element)
     print((1 << 32) & element)
 
-    print(" " + bin(2 ** 31 - 1))
+    print(" " + bin(2**31 - 1))
     # print(" " + bin(2**31))
-    print(bin(-2 ** 31))
-    print(" " + bin(~(-2 ** 31)))
-    lower_limit = -2 ** 31
-    upper_limit = 2 ** 31 - 1
+    print(bin(-(2**31)))
+    print(" " + bin(~(-(2**31))))
+    lower_limit = -(2**31)
+    upper_limit = 2**31 - 1
 
     print(~lower_limit == upper_limit)
     print("reversing")
@@ -131,8 +131,8 @@ class Solution:
 
 class Solution:
     def reverse(self, x: int) -> int:
-        lower_limit = -2 ** 31
-        upper_limit = 2 ** 31 - 1
+        lower_limit = -(2**31)
+        upper_limit = 2**31 - 1
         rev = 0
         while x:
             digit = int((math.fmod(x, 10)))

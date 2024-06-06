@@ -9,7 +9,9 @@ class ListNode:
 
 
 class Solution:
-    def splitListToParts(self, head: Optional[ListNode], k: int) -> List[Optional[ListNode]]:
+    def splitListToParts(
+        self, head: Optional[ListNode], k: int
+    ) -> List[Optional[ListNode]]:
         # first we need to find the size of the list (starting from 1)
         number_of_nodes, curr = 0, head
         while curr:

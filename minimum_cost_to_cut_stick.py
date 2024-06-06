@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = 7
     dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
 
@@ -34,7 +34,7 @@ class Solution:
                 if r - l <= 1:
                     dp[r][l] = 0
                 else:
-                    res = float('inf')
+                    res = float("inf")
                     for k in range(l + 1, r):
                         res = min(res, cuts[r] - cuts[l] + dp[k][l] + dp[r][k])
                     # note that we will always have an answer
@@ -42,7 +42,8 @@ class Solution:
                 r += 1
                 l += 1
             z += 1
-        return dp[length -  1][0]
+        return dp[length - 1][0]
+
 
 """
 # we will solve this using the dp iterative style

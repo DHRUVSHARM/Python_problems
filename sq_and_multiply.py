@@ -17,30 +17,36 @@ def square_and_multiply(x, H, n):
     r = 1
     print("base r , initially : ", r)
     print("exponent created , initially : ", 0)
-    print("to create exponent binary : " , H_bin)
+    print("to create exponent binary : ", H_bin)
 
-    for index, hi in enumerate(H_bin):  # Iterate over each bit in H's binary representation
-        print("----------------------------------------------------------------------------")
+    for index, hi in enumerate(
+        H_bin
+    ):  # Iterate over each bit in H's binary representation
+        print(
+            "----------------------------------------------------------------------------"
+        )
         print("bit seen : ", hi, " , ", "msb -> lsb index : ", len(H_bin) - 1 - index)
         if index != 0:
             print("squaring ....")
             r = pow(r, 2, n)
             # Square r and reduce modulo n , only if not msb
-            print("r : " , r)
-        if hi == '1':
+            print("r : ", r)
+        if hi == "1":
             print("multiplying ...")
             r = (r * x) % n
-            print("r : " , r)
+            print("r : ", r)
             # Multiply by x and reduce modulo n if the current bit is 1
-            print("sq and mul : ", H_bin[:index + 1])
+            print("sq and mul : ", H_bin[: index + 1])
         else:
-            print("sq only : ", H_bin[:index + 1])
-        print("----------------------------------------------------------------------------")
+            print("sq only : ", H_bin[: index + 1])
+        print(
+            "----------------------------------------------------------------------------"
+        )
 
     return r
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Example usage
     x = 1234567
     H = 23456789  # Exponent

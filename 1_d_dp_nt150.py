@@ -1,13 +1,13 @@
 # collection of 1d dp questions solved form nt 150
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = {1, 2}
     b = a.copy()
     b.remove(2)
     print(a, b)
     c = "dhruv"
-    print(c[-1: 100])
+    print(c[-1:100])
     d = {str(element) for element in range(1, 27)}
     print(d)
     c = "" + c

@@ -19,10 +19,15 @@ def kadane(arr):
             curr_sum -= arr[left]
             left += 1
 
-    print("the maximal subarray sum is : ", maximal_subarr_sum, " the window is : ", maximal_window)
+    print(
+        "the maximal subarray sum is : ",
+        maximal_subarr_sum,
+        " the window is : ",
+        maximal_window,
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [4, -1, 2, -7, 3, 4]
     kadane(a)
 

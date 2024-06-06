@@ -48,7 +48,13 @@ class Solution:
             if curr_node is None:
                 break
 
-            tree.append((curr_node, node_information[curr_node][1], node_information[curr_node][0]))
+            tree.append(
+                (
+                    curr_node,
+                    node_information[curr_node][1],
+                    node_information[curr_node][0],
+                )
+            )
             fixed[curr_node] = True
             update(curr_node)
 

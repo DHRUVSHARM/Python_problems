@@ -1,7 +1,7 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = "011011010101"
-    print(s.count('0', 0, len(s)))
-    s = s.replace('0', '1', 2)
+    print(s.count("0", 0, len(s)))
+    s = s.replace("0", "1", 2)
     print(s)
 
 
@@ -20,7 +20,7 @@ class Solution:
         # where till left >= 1 and after less than 1
         left = -1
         for i in range(0, len(elements)):
-            if elements[i] == '1':
+            if elements[i] == "1":
                 # swap and put it in left
                 elements[i], elements[left + 1] = elements[left + 1], elements[i]
                 left += 1

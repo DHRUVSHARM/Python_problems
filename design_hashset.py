@@ -1,4 +1,4 @@
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
@@ -16,8 +16,8 @@ class MyHashSet:
     __slots__ = "table", "size"
 
     def __init__(self):
-        self.table = [ListNode(-1) for _ in range(10 ** 4)]
-        self.size = 10 ** 4
+        self.table = [ListNode(-1) for _ in range(10**4)]
+        self.size = 10**4
 
     def add(self, key: int) -> None:
         prev = self.table[key % self.size]
@@ -52,6 +52,7 @@ class MyHashSet:
             curr = curr.next
 
         return False
+
 
 # Your MyHashSet object will be instantiated and called as such:
 # obj = MyHashSet()

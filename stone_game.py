@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
 
 
@@ -20,9 +20,6 @@ class Solution:
                     dp[r][l] = piles[l]
                 else:
                     # checking max in both cases because of interesting mini - max algo
-                    dp[r][l] = max(
-                        piles[r] - dp[r - 1][l],
-                        piles[l] - dp[r][l + 1]
-                    )
+                    dp[r][l] = max(piles[r] - dp[r - 1][l], piles[l] - dp[r][l + 1])
 
         return True if dp[n - 1][0] > 0 else False

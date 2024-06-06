@@ -1,7 +1,7 @@
 # Definition for a pair.
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [1, 2, 3, 4]
     b = a[:]
     a[0], a[1] = a[1], a[0]
@@ -23,7 +23,7 @@ class Solution:
             j = i - 1
             while j >= 0 and (pairs[j].key > pairs[j + 1].key):
                 # print(i , " , " , j)
-                pairs[j] , pairs[j + 1] = pairs[j+1] , pairs[j]
+                pairs[j], pairs[j + 1] = pairs[j + 1], pairs[j]
                 j -= 1
             steps.append(pairs[:])
 

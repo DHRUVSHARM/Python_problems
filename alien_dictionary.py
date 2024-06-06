@@ -2,13 +2,13 @@ import collections
 import heapq
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # print('a' < 'A')
-    print('a' < 'z')
-    print('z' < 'a')
-    print('a' == 'a')
+    print("a" < "z")
+    print("z" < "a")
+    print("a" == "a")
 
-    h = ['z', 'a']
+    h = ["z", "a"]
     heapq.heapify(h)
 
     while h:

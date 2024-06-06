@@ -13,7 +13,7 @@ class Solution:
         # each element is of the form frequency , element
 
         result = []
-        for frequency , element in temp:
+        for frequency, element in temp:
             while frequency:
                 result.append(element)
                 frequency -= 1

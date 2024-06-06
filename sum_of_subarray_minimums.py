@@ -25,4 +25,4 @@ class Solution:
                     ans += top_value * (left * right)
                 s.append((index, value))
 
-        return ans % (10 ** 9 + 7)
+        return ans % (10**9 + 7)

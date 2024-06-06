@@ -20,7 +20,7 @@ from typing import List
 class Solution:
     def canTraverseAllPairs(self, nums: List[int]) -> bool:
         f_to_index = collections.defaultdict(int)
-        adj = {index : [] for index in range(len(nums))}
+        adj = {index: [] for index in range(len(nums))}
 
         for index, n in enumerate(nums):
             # find the prime factorization

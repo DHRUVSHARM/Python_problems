@@ -21,9 +21,13 @@ class Solution:
             # using a new song
             res += (n - old_songs) * dfs(current_goal - 1, old_songs + 1)
             # using a old song , if the waiting period is over
-            res += 0 if (old_songs - k <= 0) else (old_songs - k) * dfs(current_goal - 1, old_songs)
+            res += (
+                0
+                if (old_songs - k <= 0)
+                else (old_songs - k) * dfs(current_goal - 1, old_songs)
+            )
 
             dp[(current_goal, old_songs)] = res
             return res
 
-        return dfs(goal, 0) % (10 ** 9 + 7)
+        return dfs(goal, 0) % (10**9 + 7)

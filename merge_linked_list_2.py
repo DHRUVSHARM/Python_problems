@@ -4,8 +4,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
-    def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
+    def mergeInBetween(
+        self, list1: ListNode, a: int, b: int, list2: ListNode
+    ) -> ListNode:
         # first we find the tail of the second list
         walker = list2
         while walker.next:
@@ -13,7 +16,7 @@ class Solution:
 
         list_2_tail = walker
 
-        walker_a , walker_b = list1 , list1
+        walker_a, walker_b = list1, list1
         index = 0
         while index < b:
             if index < a - 1:

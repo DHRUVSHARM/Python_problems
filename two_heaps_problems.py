@@ -4,13 +4,13 @@ from lazy_delete_heap import *
 import itertools
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     minHeap = [10, 9, 8]
     heapq.heapify(minHeap)
     print(minHeap)
 
     a = [1, 2, 3]
-    b = ['x', 'y', 'z']
+    b = ["x", "y", "z"]
 
     for v, i in enumerate(zip(a, b)):
         print(v, " ", i)

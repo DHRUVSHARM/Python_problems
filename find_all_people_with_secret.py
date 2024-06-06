@@ -1,14 +1,16 @@
 import collections
 from typing import List
 
-if __name__ == '__main__':
-    a = {1: '3', 2: '4', 3: '4'}
+if __name__ == "__main__":
+    a = {1: "3", 2: "4", 3: "4"}
     for e in a:
         print(e)
 
 
 class Solution:
-    def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
+    def findAllPeople(
+        self, n: int, meetings: List[List[int]], firstPerson: int
+    ) -> List[int]:
         # we will maintain a time_map that contains the snapshots of the graph at the different times
         time_map = {}
         for start, end, t in meetings:

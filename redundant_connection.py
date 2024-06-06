@@ -38,5 +38,5 @@ class Solution:
             union(start_frontier, end_frontier)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

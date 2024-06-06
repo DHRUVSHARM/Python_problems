@@ -8,10 +8,10 @@ def partition_matrix(matrix, row, col):
         raise ValueError("Invalid row or column indices")
 
     # Initialize submatrices
-    top_left = [matrix[i][:col + 1] for i in range(row + 1)]
-    top_right = [matrix[i][col + 1:] for i in range(row + 1)]
-    bottom_left = [matrix[i][:col + 1] for i in range(row + 1, num_rows)]
-    bottom_right = [matrix[i][col + 1:] for i in range(row + 1, num_rows)]
+    top_left = [matrix[i][: col + 1] for i in range(row + 1)]
+    top_right = [matrix[i][col + 1 :] for i in range(row + 1)]
+    bottom_left = [matrix[i][: col + 1] for i in range(row + 1, num_rows)]
+    bottom_right = [matrix[i][col + 1 :] for i in range(row + 1, num_rows)]
 
     return top_left, top_right, bottom_left, bottom_right
 
@@ -23,7 +23,9 @@ def foo(matrix):
     averages = []
 
     def calculate_non_negative_average(submatrix):
-        non_negative_values = [value for row in submatrix for value in row if value >= 0]
+        non_negative_values = [
+            value for row in submatrix for value in row if value >= 0
+        ]
         if non_negative_values:
             return sum(non_negative_values) // len(non_negative_values)
         return None
@@ -48,12 +50,7 @@ def foo(matrix):
 
 
 # Example usage:
-if __name__ == '__main__':
-    matrix = [
-        [1, 2, 3, 4],
-        [5, 6, 7, 8],
-        [9, 10, 11, 12],
-        [13, 14, 15, 16]
-    ]
+if __name__ == "__main__":
+    matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 
     foo(matrix)

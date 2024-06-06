@@ -1,6 +1,6 @@
 from typing import List
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for i in range(0, 0):
         print("in loop !!!")
 

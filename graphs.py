@@ -2,7 +2,7 @@
 import collections
 from typing import List, Optional
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     check_dict = {1: []}
     # we can add values like this if they do not exist
     print(check_dict)
@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     my_string = "hot"
     for i in range(len(my_string)):
-        print(my_string[:i], "*", my_string[i + 1:])
+        print(my_string[:i], "*", my_string[i + 1 :])
 # to find the shortest path
 """
 class Solution:

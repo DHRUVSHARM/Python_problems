@@ -10,19 +10,13 @@ class Solution:
             f_map[nums[r]] += 1
             if f_map[nums[r]] <= k:
                 # we can include this
-                ans = max(
-                    ans,
-                    r - left + 1
-                )
+                ans = max(ans, r - left + 1)
             else:
                 # we need to reduce len till this condition is reversed
                 while left <= r and f_map[nums[r]] > k:
                     f_map[nums[left]] -= 1
                     left += 1
 
-                ans = max(
-                    ans,
-                    r - left + 1
-                )
+                ans = max(ans, r - left + 1)
 
         return ans

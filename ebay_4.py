@@ -4,7 +4,7 @@ def getMaxLengthSubarray(arr, K):
     i = 0
     maxlen = 0
     max_len_start, max_len_end = 0, 0
-    while (i < l):
+    while i < l:
         j = i
         while i + 1 < l and (abs(arr[i] - arr[i + 1]) <= K):
             i += 1
@@ -25,9 +25,13 @@ def getMaxLengthSubarray(arr, K):
     return [max_len_start, max_len_end]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Driver code
-    arr = [33, 13, 15, ]
+    arr = [
+        33,
+        13,
+        15,
+    ]
     K = 2
     N = len(arr)
     l, r = getMaxLengthSubarray(arr, K)

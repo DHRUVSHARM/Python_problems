@@ -4,8 +4,11 @@ from typing import List
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        adj, node_information, fixed = collections.defaultdict(list) \
-            , {node: float("inf") for node in range(1, n + 1)}, {node: False for node in range(1, n + 1)}
+        adj, node_information, fixed = (
+            collections.defaultdict(list),
+            {node: float("inf") for node in range(1, n + 1)},
+            {node: False for node in range(1, n + 1)},
+        )
 
         for u, v, edge_wt in times:
             adj[u].append((v, edge_wt))
@@ -18,8 +21,13 @@ class Solution:
             """
             for neighbour, neighbour_wt in adj[node]:
                 if not fixed[neighbour]:
-                    if node_information[node] + neighbour_wt < node_information[neighbour]:
-                        node_information[neighbour] = node_information[node] + neighbour_wt
+                    if (
+                        node_information[node] + neighbour_wt
+                        < node_information[neighbour]
+                    ):
+                        node_information[neighbour] = (
+                            node_information[node] + neighbour_wt
+                        )
 
         def get_min():
             """

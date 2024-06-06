@@ -11,7 +11,7 @@ class Solution:
         return score
 
 
-print(int('a'))
+print(int("a"))
 
 # print(abs(ord("o") - ord("l")))
 # print(111 - 108)
