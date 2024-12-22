@@ -1,0 +1,15 @@
+import heapq
+from typing import List
+
+
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        minHeap , ans = [] , 0
+        for index, element in enumerate(arr):
+            heapq.heappush(minHeap , element)
+            while len(minHeap) and minHeap[0] <= index:
+                heapq.heappop(minHeap)
+            
+            if not len(minHeap):
+                ans += 1
+        return ans
