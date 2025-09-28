@@ -1,0 +1,10 @@
+this is where we will solve the pending questions from companies under neetcode.io
+target is to solve problems and  make notes here if needed
+this is the prereq to the blind 75
+almost every problem has a point to be notes sort of thing , and we must write it here for revision purposes 
+
+target 1 : Amazon
+1) Minimum Remove to make Valid Parentheses - programming chops are a little rusty hopefully we will be back in the game,
+stack, with variable to track balance 
+
+2) 
