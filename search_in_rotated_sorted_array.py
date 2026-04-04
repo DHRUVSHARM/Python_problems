@@ -1,6 +1,72 @@
 from typing import List
 
 # rotated sorted array part 1
+
+"""
+1 2 3 4 5 , k = 0
+5 | 1 2 3 4 ,   2 3 4 5 | 1 , k = 1 (left or right)
+4 5 | 1 2 3 ,   3 4 5 | 1 2 , k= 2
+
+inc | inc
+
+if 3 then linear search or bring left closer 
+ie;  left < mid > right linear search
+
+if element > left 
+
+
+                 mid
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+
+
+1 <= nums.length <= 5000
+-104 <= nums[i] <= 104
+All values of nums are unique.
+nums is an ascending array that is possibly rotated.
+-104 <= target <= 104
+
+
+left ..... mid ......right
+
+"""
+
+# shorter, optimized solution 
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left , right = 0 , len(nums) - 1
+
+        while right - left + 1 > 3:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+            
+
+            if nums[left] < nums[mid]:
+                # left partition 
+                if nums[left] <= target < nums[mid]:
+                    right = mid
+                else:
+                    left = mid
+
+            else:
+                # right partition 
+                if nums[mid] < target <= nums[right]:
+                    left = mid
+                else:
+                    right = mid
+
+
+
+        for index in range(left , right + 1):
+            if nums[index] == target:
+                return index
+        
+        return -1
+
+
+
 """
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
