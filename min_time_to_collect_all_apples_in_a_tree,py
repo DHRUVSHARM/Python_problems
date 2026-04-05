@@ -1,0 +1,64 @@
+from typing import List
+
+"""
+Given an undirected tree consisting of n vertices numbered from 0 to n-1, 
+which has some apples in their vertices. 
+You spend 1 second to walk over one edge of the tree. 
+Return the minimum time in seconds you have to spend to collect all apples in the tree,
+starting at vertex 0 and coming back to this vertex.
+
+we know it is a tree
+so no cycle or repeat visits 
+
+can keep it as a adj list 
+start from a node that is an apple, since we need to collect all apples 
+
+if path gives 
+
+no apple, then add += 2
+is apple or (all the paths )
+
+
+node ----- ()
+    -----()
+
+
+
+        node
+
+    0   1   2   3  ...
+
+
+"""
+import collections
+class Solution:
+    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        adj = collections.defaultdict(list)
+        for u , v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+        
+        visited = set()
+
+        def dfs(node):
+            visited.add(node)
+
+            time = 0
+            has_apple = hasApple[node]
+
+            for nei in adj[node]:
+                if nei not in visited:
+                    has_apple_subans , time_subans = dfs(nei)
+                    time += time_subans
+                    if has_apple_subans:
+                        # need to visit this part and back  
+                        time += 2
+                    has_apple = has_apple or has_apple_subans # record if apple reachable
+
+            # print(time)
+            return has_apple , time
+
+        # start node is given to be 0 always 
+        _ , result = dfs(0)
+        
+        return result
