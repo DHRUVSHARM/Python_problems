@@ -25,6 +25,14 @@ The XOR of all elements is 4 ^ 4 ^ 4 = 4.
 [2,  3,  1,  5,  4]
      _       _
 
+     brute force, 
+     for each query:
+        from l to r, 
+            for all indexes in l , r skipping k at a time:
+                multiply v and take mod m
+    
+    in the end xor of all the elements in the final updated array to get the result 
+
 """
 
 class Solution:
