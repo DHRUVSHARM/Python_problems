@@ -99,6 +99,18 @@ dictionary index            0   1   2   3
                                 if min(diff) <= 2:
                                     append result
                                 else np                                 
+
+                                
+
+dfs trie 
+medium 
+                                
+
+
+                                """
+
+
+
 """
 class Solution:
     def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
@@ -115,4 +127,62 @@ class Solution:
             if min(diff) <= 2:
                 result.append(query_word)
             
+        return result
+"""
+
+# trie solution 
+
+class TrieNode:
+    def __init__(self, val=None , word_end=False):
+        self.val = val
+        self.children = {}
+        self.word_end = word_end
+
+class Solution:
+
+    def insert(self, root , word):
+        curr = root
+        for c in word:
+            if c not in curr.children:
+                curr.children[c] = TrieNode(c)
+            curr = curr.children[c]
+        
+        curr.word_end = True
+
+    def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
+        
+        root = TrieNode() # trie
+
+        # insert all the words into the dictionary 
+        for word in dictionary:
+            self.insert(root , word)
+        
+        # answer queries with dfs on the tree 
+        def dfs(node, index, word, curr_steps):
+            if index == len(word):
+                if curr_steps <= 2:
+                    return True
+                else:
+                    return False
+                
+            result = False
+            for child in node.children.keys():
+                if word[index] == child:
+                    result = result or dfs(node.children[child] , index + 1 , word , curr_steps)
+                elif curr_steps < 2:
+                    result = result or dfs(node.children[child] , index + 1 , word, curr_steps + 1)
+                if result:
+                    # early exit
+                    return result
+
+            return result
+
+
+        result = []
+        for word in queries:
+            valid = dfs(root , 0 , word, 0)
+            if valid:
+                result.append(word)
+        
+
         return result
