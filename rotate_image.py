@@ -1,19 +1,14 @@
 from typing import List
 
-
+"""
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
         n = len(matrix)
         t_l, t_r, b_r, b_l = [0, 0], [0, n - 1], [n - 1, n - 1], [n - 1, 0]
 
         def rotate(tl, tr, br, bl):
-            """
-            rotates one square
-            :return:
-            """
+
+            
             x, y = tl
             element = matrix[x][y]
             x, y = tr
@@ -43,3 +38,24 @@ class Solution:
             b_l = [b_l[0] - 1, b_l[1] + 1]
 
             print(t_l, t_r, b_r, b_l)
+"""
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        # approach transpose + swap columns 
+        m , n = len(matrix) , len(matrix[0])
+
+        for i in range(0 , m):
+            for j in range(i , n):
+                matrix[i][j] , matrix[j][i] =  matrix[j][i] , matrix[i][j]
+        
+        # for i in range(0 , m):
+            # print(matrix[i] , "\n")
+        
+        for i in range(0 , m):
+            for j in range(0 , n // 2):
+                matrix[i][j] , matrix[i][n - j - 1] = matrix[i][n - j - 1] , matrix[i][j]
+        
+        return matrix
