@@ -1,0 +1,18 @@
+bisect_left means:
+first index where arr[i] >= target
+
+    < target  >= target
+FFFFFFFFFFFF  TTTTTTTTTTTT
+              T value for bisect left 
+           idx - 1 for last one strictly less 
+
+--------------------------------------------------------
+
+
+bisect_right means
+first index where arr[i] > target (strictly greater)
+
+    <= target   > target 
+FFFFFFFFFFFFF   TTTTTTTTTTTTT
+                first one > 
+            idx : last one <= target 

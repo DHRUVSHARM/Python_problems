@@ -15,6 +15,7 @@ from typing import Optional
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
 class Solution:
     def distributeCoins(self, root: Optional[TreeNode]) -> int:
         ans = [0]
@@ -46,3 +47,51 @@ class Solution:
         helper(root)
 
         return ans[0]
+"""
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def distributeCoins(self, root: Optional[TreeNode]) -> int:
+        self.res = 0
+
+        if not root:
+            return self.res
+        
+
+        def helper(node):
+            if node is None:
+                return 0 , 0
+
+            
+            total_coins, total_size = node.val , 1
+            if node.left:
+                lc , lsize = helper(node.left)
+                self.res += abs(lc - lsize)
+                total_size += lsize
+                total_coins += lc
+            
+            if node.right:
+                rc, rsize = helper(node.right)
+                self.res += abs(rc - rsize)
+                total_size += rsize
+                total_coins += rc
+
+            return total_coins, total_size
+
+        helper(root)
+        return self.res
+
+    
+      
