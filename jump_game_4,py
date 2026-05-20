@@ -1,0 +1,71 @@
+from typing import List
+
+"""
+modified bfs to prevent runtime issues
+
+ideas: 
+keep a set of all occ of an index
+use it to find all the similar valued neighbours
+if different from current index only
+
+once visited, clear, since we will not need
+
+0
+
+0   0   0   0   0   0
+
+once we have added all the zeroes and reach a zero then no point in reaching again from the other ways since 
+we would have reached already 
+
+only the -1, +1 moves need to be looked at
+
+bfs with dp stored dist, 
+
+if at last index then we bail out, visited since we already have the best way to reach a position before putting in the queue
+"""
+
+import collections
+class Solution:
+    def minJumps(self, arr: List[int]) -> int:
+        occ = collections.defaultdict(list)
+        n = len(arr)    
+        adj = collections.defaultdict(list)
+
+        for index, element in enumerate(arr):
+            occ[element].append(index)
+            if index - 1 >= 0:
+                adj[index].append(index - 1)
+            if index + 1 < n:
+                adj[index].append(index + 1)
+
+        # print(adj)
+        
+        # store index, dist
+        q = collections.deque([(0 , 0)])
+        dist = {0 : 0} # store the dist
+
+        
+        while len(q):
+            index, distance = q.popleft()
+
+            # go through the adj neighbours 
+            for new_idx in adj[index]:
+                if new_idx not in dist:
+                    dist[new_idx] = distance + 1
+                    q.append((new_idx , dist[new_idx]))
+            
+            # go through the similar value neighbours 
+            for new_idx in occ[arr[index]]:
+                if new_idx not in dist and new_idx != index:
+                    dist[new_idx] = distance + 1
+                    q.append((new_idx , dist[new_idx]))
+            
+            # clear 
+            occ[arr[index]] = [] # set empty once explored 
+        
+
+        # print(dist)
+        # return distance to reach the last index
+        return dist[n - 1]
+
+        
