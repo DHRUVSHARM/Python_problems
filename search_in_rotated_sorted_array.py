@@ -32,6 +32,7 @@ left ..... mid ......right
 """
 
 # shorter, optimized solution 
+"""
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         left , right = 0 , len(nums) - 1
@@ -65,7 +66,7 @@ class Solution:
         
         return -1
 
-
+"""
 
 """
 class Solution:
@@ -133,3 +134,63 @@ class Solution:
 
         return ans
 """
+
+"""
+[0,1,2,4,5,6,7]
+
+k = 1 to 7
+
+1   [1,2,4,5,6,7|   0]
+2   [2,4,5,6,7  |   0,1]
+3   [4,5,6,7    |   0,1,2]
+4
+5
+6
+7   [0,1,2,3,4,5,6]
+ 
+
+
+while less than 3 elements for safety 
+    if  nums[0] < nums[mid]
+        # in the left side of the array
+        if target > nums[mid] or target < nums[0]:
+            # move right, left = mid
+        else:
+            # move left 
+    else 
+        # in the right side of the array 
+        if target < nums[mid] or target > nums[-1]:
+            # move left, right = mid
+        else:
+            # move right
+
+"""
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left , right = 0 , len(nums) - 1
+
+        index = -1
+        while right - left + 1 > 3:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            
+            if nums[0] < nums[mid]:
+                # left side
+                if target > nums[mid] or target < nums[0]:
+                    left = mid
+                else:
+                    right = mid
+            else:
+                # right side 
+                if target < nums[mid] or target > nums[-1]:
+                    right = mid
+                else:
+                    left = mid
+
+        for j in range(left, right + 1):
+            if nums[j] == target:
+                index = j
+                break
+        
+        return index
