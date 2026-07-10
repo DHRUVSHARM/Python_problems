@@ -1,3 +1,27 @@
+# Problem summary:
+# - In a set that should contain 1..n, one value is duplicated and one value is
+#   missing; return [duplicate, missing].
+#
+# Approach:
+# - Mark each seen value v by negating index v - 1.
+# - If the target index is already negative, v is the duplicate.
+# - After marking, the positive index i reveals missing value i + 1.
+#
+# Pattern:
+# - Cyclic-sort-style index marking / in-place hashing.
+#
+# Complexity:
+# - Time: O(n), where n is len(nums).
+# - Space: O(1) auxiliary space, excluding the output list.
+#
+# Example dry run:
+# - Input: nums = [1,2,2,4]
+# - Step 1: Mark values 1 and 2 by negating indices 0 and 1.
+# - Step 2: Seeing the second 2 finds index 1 already negative, so duplicate is
+#   2.
+# - Step 3: Scan finds index 2 still positive, so missing value is 3.
+# - Output: [2, 3].
+
 from typing import List
 
 """

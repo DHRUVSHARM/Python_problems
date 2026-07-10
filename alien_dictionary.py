@@ -1,3 +1,35 @@
+# Problem summary:
+# - Infer a valid character order from words that are sorted according to an
+#   alien alphabet. Return an empty string if the ordering is invalid.
+#
+# Approach:
+# - Compare each adjacent pair of words and use the first differing character
+#   to create a directed ordering edge.
+# - Add all seen characters to the graph, and reject the invalid prefix case
+#   where a longer word appears before its own prefix.
+# - Run DFS to detect cycles in the character dependency graph.
+# - Build indegrees and run Kahn's topological sort with a min heap to produce
+#   a deterministic valid order.
+#
+# Pattern:
+# - Topological sort on a directed graph, with DFS cycle detection and
+#   heap-based Kahn's algorithm.
+#
+# Complexity:
+# - Time: O(C + U log U + E log U), where C is total characters, U is unique
+#   characters, and E is ordering edges.
+# - Space: O(U + E).
+#
+# Example dry run:
+# - Input: words = ["wrt", "wrf", "er", "ett", "rftt"].
+# - Compare "wrt" and "wrf": first difference is t vs f, so add edge t -> f.
+# - Compare "wrf" and "er": first difference is w vs e, so add edge w -> e.
+# - Compare "er" and "ett": first difference is r vs t, so add edge r -> t.
+# - Compare "ett" and "rftt": first difference is e vs r, so add edge e -> r.
+# - Indegrees make w the first zero-indegree character; heap pops w, then e,
+#   then r, then t, then f as edges are relaxed.
+# - Output: "wertf".
+
 import collections
 import heapq
 from typing import List

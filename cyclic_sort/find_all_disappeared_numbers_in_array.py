@@ -1,3 +1,26 @@
+# Problem summary:
+# - Find every value in 1..n that does not appear in an array whose values are
+#   all in that same range.
+#
+# Approach:
+# - Use each seen value v as a pointer to index v - 1 and mark that position
+#   negative.
+# - After all marks, every positive position i means value i + 1 was never seen.
+#
+# Pattern:
+# - Cyclic-sort-style index marking / in-place hashing.
+#
+# Complexity:
+# - Time: O(n), where n is len(nums).
+# - Space: O(1) auxiliary space, excluding the output list.
+#
+# Example dry run:
+# - Input: nums = [4,3,2,7,8,2,3,1]
+# - Step 1: Mark indices abs(v)-1 for each value; nums becomes
+#   [-4,-3,-2,-7,8,2,-3,-1].
+# - Step 2: Scan for positive entries; indices 4 and 5 are positive.
+# - Output: [5, 6], because values 5 and 6 were never marked as present.
+
 from typing import List
 
 """

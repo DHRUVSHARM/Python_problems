@@ -1,0 +1,8 @@
+# the below tree is useful to run mental queries and see how the operations move
+# especially for the arr based approach 
+
+              1 = [0,3]
+          /              \
+     2 = [0,1]        3 = [2,3]
+     /     \          /      \
+ 4=[0]   5=[1]    6=[2]    7=[3] 

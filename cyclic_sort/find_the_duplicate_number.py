@@ -1,3 +1,28 @@
+# Problem summary:
+# - Find the single repeated value in an array of n + 1 values where every value
+#   is in the range 1..n.
+#
+# Approach:
+# - Interpret nums as a linked list where each index points to nums[index].
+# - Use Floyd's cycle detection to find an intersection inside the cycle, then
+#   move one pointer from index 0 and one from the intersection until they meet.
+#
+# Pattern:
+# - Fast/slow pointers, cycle detection.
+#
+# Complexity:
+# - Time: O(n), where n is the valid value range size.
+# - Space: O(1).
+#
+# Example dry run:
+# - Input: nums = [1,3,4,2,2]
+# - Step 1: Following pointers gives 0 -> 1 -> 3 -> 2 -> 4 -> 2, so the cycle
+#   starts at value/index 2.
+# - Step 2: Fast and slow pointers meet somewhere in that cycle.
+# - Step 3: Move one pointer from 0 and one from the meeting point one hop at a
+#   time; they meet at 2.
+# - Output: 2, the duplicate value that creates the cycle.
+
 """
 Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
 

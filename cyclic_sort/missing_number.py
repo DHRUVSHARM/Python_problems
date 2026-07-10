@@ -1,3 +1,27 @@
+# Problem summary:
+# - Given n distinct numbers from the range 0..n, return the one missing value.
+#
+# Approach:
+# - Repeatedly place each value at its matching index when possible; value n is
+#   handled by checking the slot for n - 1 in this implementation.
+# - After placement, the first index i where nums[i] != i is the missing number.
+#
+# Pattern:
+# - Cyclic sort / in-place swapping.
+#
+# Complexity:
+# - Time: O(n), where n is len(nums), because each swap moves a value closer to
+#   its target position.
+# - Space: O(1).
+#
+# Example dry run:
+# - Input: nums = [3,0,1]
+# - Step 1: At index 0, value 3 uses the n-handling branch and swaps with index
+#   2 -> [1,0,3].
+# - Step 2: Value 1 swaps with index 1 -> [0,1,3].
+# - Step 3: Scan finds index 2 has 3 instead of 2.
+# - Output: 2, the missing number from 0..3.
+
 from typing import List
 
 """

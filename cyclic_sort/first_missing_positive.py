@@ -1,3 +1,26 @@
+# Problem summary:
+# - Return the smallest positive integer missing from an unsorted integer array.
+#
+# Approach:
+# - Replace values outside 1..n with 0 because they cannot affect the answer.
+# - For every remaining value v, mark index v - 1 negative to record that v is
+#   present, using v itself when the target slot is currently 0.
+# - The first non-negative slot i corresponds to missing value i + 1.
+#
+# Pattern:
+# - Cyclic-sort-style index marking / in-place hashing.
+#
+# Complexity:
+# - Time: O(n), where n is len(nums).
+# - Space: O(1).
+#
+# Example dry run:
+# - Input: nums = [3,4,-1,1]
+# - Step 1: Replace out-of-range values with 0 -> [3,4,0,1].
+# - Step 2: Mark present values 3, 4, and 1 -> [-3,4,-3,-1].
+# - Step 3: Index 1 is the first non-negative slot.
+# - Output: 2, because 1 is present and 2 is missing.
+
 from typing import List
 
 """
