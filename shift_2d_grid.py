@@ -74,7 +74,7 @@ class Solution:
                 if index == start:
                     break
 
-            start += 1 # try with new offset 
+            start += 1 # try with new offset , this works since the indices have been flattened into a single dimension 
 
 
         return grid
