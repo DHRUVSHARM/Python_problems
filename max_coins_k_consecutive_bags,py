@@ -1,0 +1,81 @@
+from typing import List
+from bisect import bisect_right
+class Solution:
+    def maximumCoins(self, coins: List[List[int]], k: int) -> int:
+        """
+        we know that the intervals do not overlap, so sorting will give the correct causal ordering required 
+        
+        
+            (1 , 3 , 2)     (5 , 6 , 4)     (8 , 10 , 1)
+            6               8               3
+
+
+        0   6               14              17
+        
+        
+        for a given point x
+
+        start <= x to get the interval x is in 
+                                x
+        start --- end            start' 
+
+        then overlap can be [start , min(x  , end)] for all cases 
+        
+        br
+
+        <= >
+        br - 1 is useful if br - 1 is -1 means 
+
+                                        x
+                    start - -- end      s'-----e'
+        
+        -1 means 0 
+        0 means fine we use the 0 index to say that there is none before  
+        
+        1 means prefix[1] + overlap_calc(using index 1 in starts)
+        
+        
+        
+            x----------------------------------------------y
+            a --- a'        b ---- b'       c ---- c'
+        
+            best case is align begin or end since we can always subtract a lower and add better 
+            for window of size k we can align as follows, 
+            start align : l , l + k - 1
+            end align r - k + 1 , r   
+
+            ans we subtract to het the intervals 
+            for any answer that is not on the boundaries we can be close to it 
+        
+        """
+
+        coins.sort()
+
+        prefix_sum = [0]
+        for l , r , profit in coins:
+            prefix_sum.append(prefix_sum[-1] + (r - l + 1) * profit)
+
+        
+        def get_collection_before_interval(x):
+            # get the money collected before the index and also add the current overlap 
+            # -1 means x has no overlap so 0 
+            
+            idx = bisect_right(coins , x , key=lambda element : element[0]) - 1
+
+            if idx == -1:
+                return 0 
+
+            l , r , p = coins[idx]
+            return prefix_sum[idx] + p * (min(r , x) - l + 1)
+
+        ans = float("-inf")
+        for l, r, _ in coins:
+            # each start point can be a start or end point can be an end 
+            # end point as start is useless when we can always get more 
+            ans = max(
+                ans,
+                get_collection_before_interval(l + k - 1) - get_collection_before_interval(l - 1),
+                get_collection_before_interval(r) - get_collection_before_interval(r - (k - 1) - 1)
+            )
+
+        return ans

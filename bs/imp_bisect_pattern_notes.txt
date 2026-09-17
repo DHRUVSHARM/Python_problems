@@ -1,10 +1,15 @@
 bisect_left means:
 first index where arr[i] >= target
-
+              idx
     < target  >= target
 FFFFFFFFFFFF  TTTTTTTTTTTT
               T value for bisect left 
-           idx - 1 for last one strictly less 
+           idx - 1 for last one strictly less than target
+           ids : first one greater than or equal to target 
+
+
+the bisection happens when the target >=  (basically picks the first)
+< ffff , | >= ttttt 
 
 --------------------------------------------------------
 
@@ -12,7 +17,34 @@ FFFFFFFFFFFF  TTTTTTTTTTTT
 bisect_right means
 first index where arr[i] > target (strictly greater)
 
+                idx
     <= target   > target 
 FFFFFFFFFFFFF   TTTTTTTTTTTTT
                 first one > 
-            idx : last one <= target 
+            idx - 1 : last one <= target 
+            idx : first one strictly greater than target
+
+
+note idx is always on the right partition 
+
+<=              | > 
+ffffff              tttt
+
+
+
+VERY VERY IMP : 
+
+low <= x <= high:
+bisect_right(high) - bisect_left(low)
+
+decompose thing 
+
+
+low <= x < high:
+bisect_left(high) - bisect_left(low)
+
+low < x <= high:
+bisect_right(high) - bisect_right(low)
+
+low < x < high:
+bisect_left(high) - bisect_right(low)
